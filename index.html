@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Range Scheduler</title>
+    <link rel="stylesheet" href="css/libs/bootstrap.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Range Scheduler</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Navigation <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <span class="navbar-brand" href="#">Exemplary Data</span>
+                    </li>
+                    <li>
+                        <a href="#" id="exemplary-data-button-install">
+                            <span class="text-success">Install</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" id="exemplary-data-button-clear" class="text-danger">
+                            <span class="text-danger">Clear</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="container-fluid">
+        <div class="row">
+            <div class="col-xs-6 range-container">
+                <div id="ranges-container"></div>
+            </div>
+            <div class="col-xs-6">
+                <form id="form" class="form-horizontal reservation-form">
+                    <fieldset>
+                        <legend>Make a reservation</legend>
+                        <div class="form-group">
+                            <label for="form-name" class="col-lg-2 control-label">Full Name</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" id="form-name" placeholder="Full Name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="form-email" class="col-lg-2 control-label">Email</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" id="form-email" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="form-telephone" class="col-lg-2 control-label">Telephone</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" id="form-telephone" placeholder="Telephone">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="form-date" class="col-lg-2 control-label">Date</label>
+                            <div class="col-lg-10">
+                             <input type="date" id="form-date" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="form-start" class="col-lg-2 control-label">From</label>
+                            <div class="col-lg-10">
+                                <input type="time" id="form-start" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="form-stop" class="col-lg-2 control-label">To</label>
+                            <div class="col-lg-10">
+                                <input type="time" id="form-stop" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-10 col-lg-offset-2">
+                                <button type="reset" class="btn btn-default">Cancel</button>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12" id="table-container"></div>
+        </div>
+    </section>
+
+<script src="js/ExemplaryDataGenerator.js"></script>
+<script src="js/LocalStorageManager.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

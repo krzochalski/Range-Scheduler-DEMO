@@ -1,0 +1,22 @@
+{
+  "name": "range-scheduler",
+  "version": "1.0.0",
+  "description": "Range Time Scheduling App",
+  "main": "index.html",
+  "scripts": {
+    "dev": "./node_modules/.bin/nodemon -e scss --exec \"node run.js\"",
+    "livereload": "./node_modules/.bin/livereload"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/krzochalski/rangeman.git"
+  },
+  "author": "Piotr Krzoska",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/krzochalski/rangeman#readme",
+  "devDependencies": {
+    "livereload": "^0.6.2",
+    "node-sass": "^4.5.3",
+    "nodemon": "^1.11.0"
+  }
+}
