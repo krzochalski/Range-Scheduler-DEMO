@@ -1,20 +1,14 @@
-let currentDay = () => {
-    let oneDay = 86400000;
-    let today = new Date();
-    let yesterday = new Date(Date.now() - oneDay);
+let currentDay = (days) => {
+    let oneDay = 86400000,
+        daysCount = days === 0 ? 0 : days * oneDay;
+        today = new Date(Date.now() + daysCount),
+        getYear = (date) => date.getFullYear(),
+        getMonth = (date) => date.getUTCMonth() < 10 ? `0${date.getUTCMonth() + 1}` : date.getUTCMonth() + 1,
+        getDay = (date) => date.getUTCDate() < 10 ? `0${date.getUTCDate()}` : date.getUTCDate(),
+        getFullDate = (date) => `${getYear(date)}-${getMonth(date)}-${getDay(date)}`;
 
-    let getYear = (date) => date.getFullYear();
-    let getMonth = (date) => date.getUTCMonth() < 10 ? `0${date.getUTCMonth() + 1}` : date.getUTCMonth() + 1;
-    let getDay = (date) => date.getUTCDate() < 10 ? `0${date.getUTCDate()}` : date.getUTCDate();
-
-
-    let getFullDate = (date) => `${getYear(date)}-${getMonth(date)}-${getDay(date)}`;
-
-    console.log(`today: ${getFullDate(today)}`);
-    console.log(`yesterday: ${getFullDate(yesterday)}`);
+    return getFullDate(today);
 };
-
-currentDay();
 
 let ExemplaryData = () => {
 
@@ -29,7 +23,7 @@ let ExemplaryData = () => {
                     "number": "1",
                     reservations: [
                         {
-                            "day": "2017-05-29",
+                            "day": currentDay(-1),
                             "reservations": [
                                 {
                                     "fullname": "John Wick",
@@ -54,7 +48,7 @@ let ExemplaryData = () => {
                             ]
                         },
                         {
-                            "day": "2017-05-30",
+                            "day": currentDay(0),
                             "reservations": [
                                 {
                                     "fullname": "Ron Swanson",
@@ -87,7 +81,7 @@ let ExemplaryData = () => {
                             ]
                         },
                         {
-                            "day": "2017-05-31",
+                            "day": currentDay(1),
                             "reservations": [
                                 {
                                     "fullname": "Rocky Balboa",
@@ -112,7 +106,7 @@ let ExemplaryData = () => {
                     "number": "2",
                     reservations: [
                         {
-                            "day": "2017-05-29",
+                            "day": currentDay(-1),
                             "reservations": [
                                 {
                                     "fullname": "John Wick",
@@ -137,7 +131,7 @@ let ExemplaryData = () => {
                             ]
                         },
                         {
-                            "day": "2017-05-30",
+                            "day": currentDay(0),
                             "reservations": [
                                 {
                                     "fullname": "Ron Swanson",
@@ -170,7 +164,7 @@ let ExemplaryData = () => {
                             ]
                         },
                         {
-                            "day": "2017-05-31",
+                            "day": currentDay(1),
                             "reservations": [
                                 {
                                     "fullname": "Rocky Balboa",
@@ -195,7 +189,7 @@ let ExemplaryData = () => {
                     "number": "3",
                     reservations: [
                         {
-                            "day": "2017-05-29",
+                            "day": currentDay(-1),
                             "reservations": [
                                 {
                                     "fullname": "John Wick",
@@ -220,7 +214,7 @@ let ExemplaryData = () => {
                             ]
                         },
                         {
-                            "day": "2017-05-30",
+                            "day": currentDay(0),
                             "reservations": [
                                 {
                                     "fullname": "Ron Swanson",
@@ -253,7 +247,7 @@ let ExemplaryData = () => {
                             ]
                         },
                         {
-                            "day": "2017-05-31",
+                            "day": currentDay(1),
                             "reservations": [
                                 {
                                     "fullname": "Rocky Balboa",
@@ -278,7 +272,7 @@ let ExemplaryData = () => {
                     "number": "4",
                     reservations: [
                         {
-                            "day": "2017-05-29",
+                            "day": currentDay(-1),
                             "reservations": [
                                 {
                                     "fullname": "John Wick",
@@ -303,7 +297,7 @@ let ExemplaryData = () => {
                             ]
                         },
                         {
-                            "day": "2017-05-30",
+                            "day": currentDay(0),
                             "reservations": [
                                 {
                                     "fullname": "Ron Swanson",
@@ -336,7 +330,7 @@ let ExemplaryData = () => {
                             ]
                         },
                         {
-                            "day": "2017-05-31",
+                            "day": currentDay(1),
                             "reservations": [
                                 {
                                     "fullname": "Rocky Balboa",
@@ -361,7 +355,7 @@ let ExemplaryData = () => {
                     "number": "5",
                     reservations: [
                         {
-                            "day": "2017-05-29",
+                            "day": currentDay(-1),
                             "reservations": [
                                 {
                                     "fullname": "John Wick",
@@ -386,7 +380,7 @@ let ExemplaryData = () => {
                             ]
                         },
                         {
-                            "day": "2017-05-30",
+                            "day": currentDay(0),
                             "reservations": [
                                 {
                                     "fullname": "Ron Swanson",
@@ -419,7 +413,7 @@ let ExemplaryData = () => {
                             ]
                         },
                         {
-                            "day": "2017-05-31",
+                            "day": currentDay(1),
                             "reservations": [
                                 {
                                     "fullname": "Rocky Balboa",
@@ -447,7 +441,7 @@ let ExemplaryData = () => {
 
 
 const exemplaryReservationNow = {
-    "day": "2017-05-31",
+    "day": currentDay(1),
     "reservations": {
         "fullname": "Musashi Miyamoto",
         "telephone": "111222333",
@@ -458,7 +452,7 @@ const exemplaryReservationNow = {
 };
 
 const exemplaryReservation = {
-    "day": "2017-06-01",
+    "day": currentDay(3),
         "reservations": {
             "fullname": "Musashi Miyamoto",
             "telephone": "111222333",
