@@ -72,10 +72,10 @@ let renderLanes = () => {
 
     if (LocalStorageManager(DataKeys.ranges).exemplaryData.isInstalled()) {
         return `${ranges.map(range => `
-            <div class="range m-${range.type}">
-                <div class="label text-center"><h2 class="text-primary">25m</h2></div>
+            <div class="range m-${range.size}">
+                <div class="label text-center"><h2 class="text-primary">${range.size}m</h2></div>
                 <div class="lanes">
-                    ${range.lanes.map(lane => `<div class="lane"><div class="position">${lane.number}</div></div>`).join('')}
+                    ${range.lanes.map(lane => `<div class="lane"><div class="position">${lane.number}</div><span class="badge pull-right">${Math.floor(Math.random() * 100)}%</span></div>`).join('')}
                 </div>
             </div>`
         ).join('')}`;
