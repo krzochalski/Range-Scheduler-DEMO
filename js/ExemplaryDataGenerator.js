@@ -15,8 +15,8 @@ let ExemplaryData = () => {
 
     return [
         {
-            range: "range-1",
-            type: "25",
+            name: "range-1",
+            size: "25",
             lanes: [
                 {
                     "lane": "lane-1",

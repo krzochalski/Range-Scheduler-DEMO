@@ -10,7 +10,7 @@ let today = () => {
 let ReservationsManager = {
     reservations: {
         getAll: () => {
-            LocalStorageManager('reservationsData').exemplaryData.get();
+            LocalStorageManager(DataKeys.ranges).exemplaryData.get();
         },
         get: (day) => {
             for (let reservation of ExemplaryData) {
@@ -20,11 +20,34 @@ let ReservationsManager = {
             }
         },
         add: (reservation) => {
-            LocalStorageManager('reservationsData').addReservation(reservation);
+            LocalStorageManager(DataKeys.ranges).addReservation(reservation);
             DOMElements.$tableContainer.innerHTML = renderReservations();
         }
     }
 };
+
+let RangesManager = {
+    ranges: {
+        getAll: () => {
+            let ranges = LocalStorageManager().collection(DataKeys.ranges).getAll();
+            let rangeData = (range) => `Range: ${range.name},\nLength: ${range.size},\nLanes: ${range.lanes.length},`;
+            let reservationsData = (lanes) => `Reservations on: ${lanes.reservations.map(day => day.day)}\n`;
+            let lanesData = (range) => {
+                return `Lanes Data:\n${range.lanes.map(lane => `${lane.number}: ${reservationsData(lane)}`).join('')}`;
+            };
+
+            const output = `${ranges.map(range =>
+                `${rangeData(range)}\n${lanesData(range)}`
+            ).join('')}`;
+
+            console.log(ranges);
+            console.log(output);
+
+        }
+    }
+};
+
+RangesManager.ranges.getAll();
 
 let DOMElements = {
     form: {
@@ -45,9 +68,9 @@ let DOMElements = {
 };
 
 let renderLanes = () => {
-    let ranges = LocalStorageManager('reservationsData').getData();
+    let ranges = LocalStorageManager(DataKeys.ranges).getData();
 
-    if (LocalStorageManager('reservationsData').exemplaryData.isInstalled()) {
+    if (LocalStorageManager(DataKeys.ranges).exemplaryData.isInstalled()) {
         return `${ranges.map(range => `
             <div class="range m-${range.type}">
                 <div class="label text-center"><h2 class="text-primary">25m</h2></div>
@@ -65,12 +88,12 @@ let renderLanes = () => {
 let initEvents = () => {
     DOMElements.$exemplaryDataButtonInstall.addEventListener('click', (event) => {
         event.preventDefault();
-        LocalStorageManager('reservationsData').exemplaryData.install();
+        LocalStorageManager(DataKeys.ranges).exemplaryData.install();
     });
 
     DOMElements.$exemplaryDataButtonClear.addEventListener('click', (event) => {
         event.preventDefault();
-        LocalStorageManager('reservationsData').exemplaryData.clear();
+        LocalStorageManager(DataKeys.ranges).exemplaryData.clear();
     });
 
     DOMElements.$rangesContainer.innerHTML = renderLanes();

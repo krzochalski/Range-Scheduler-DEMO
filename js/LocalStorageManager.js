@@ -1,3 +1,7 @@
+const DataKeys = {
+    ranges: 'rangesData'
+};
+
 let LocalStorageManager = (key) => {
     let saveData = (data) => {
         localStorage.setItem(key, JSON.stringify(data))
@@ -47,6 +51,24 @@ let LocalStorageManager = (key) => {
             }
 
             saveData(daysData);
+        },
+
+        collection: (collection) => {
+            return {
+                getAll: () => {
+                    return JSON.parse(localStorage.getItem(collection));
+                }
+            }
+        },
+        string: (key) => {
+            return {
+                read: () => {
+                    return localStorage.getItem(key);
+                },
+                write: (value) => {
+                    localStorage.setItem(key, value);
+                }
+            }
         }
     };
 };
