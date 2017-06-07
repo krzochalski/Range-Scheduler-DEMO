@@ -29,6 +29,10 @@ let ReservationsManager = {
 let RangesManager = {
     ranges: {
         getAll: () => {
+            if (!LocalStorageManager(DataKeys.ranges).exemplaryData.isInstalled()) {
+                return false;
+            }
+
             let ranges = LocalStorageManager().collection(DataKeys.ranges).getAll();
             let rangeData = (range) => `Range: ${range.name},\nLength: ${range.size},\nLanes: ${range.lanes.length},`;
             let reservationsData = (lanes) => `Reservations on: ${lanes.reservations.map(day => day.day)}\n`;
