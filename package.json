@@ -4,8 +4,9 @@
   "description": "Range Time Scheduling App",
   "main": "index.html",
   "scripts": {
-    "dev": "./node_modules/.bin/nodemon -e scss --exec \"node run.js\"",
-    "livereload": "./node_modules/.bin/livereload"
+    "compile": "./node_modules/.bin/nodemon -e scss --exec \"node run.js\"",
+    "livereload": "./node_modules/.bin/livereload",
+    "dev": "./node_modules/.bin/concurrently --kill-others \"npm run compile\" \"npm run livereload\""
   },
   "repository": {
     "type": "git",
@@ -15,6 +16,7 @@
   "license": "ISC",
   "homepage": "https://bitbucket.org/krzochalski/rangeman#readme",
   "devDependencies": {
+    "concurrently": "^3.4.0",
     "livereload": "^0.6.2",
     "node-sass": "^4.5.3",
     "nodemon": "^1.11.0"
