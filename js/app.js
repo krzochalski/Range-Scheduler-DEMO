@@ -99,31 +99,44 @@ let renderLanes = () => {
 };
 
 let renderTimeLine = () => {
-    let hours = (start, end) => {
-        start = parseInt(start.replace(':', ''));
-        end = parseInt(end.replace(':', ''));
-        let hoursArray = [];
-        let integerToTime = (integer) => {
-            let time = integer.toString();
+    let getTimelineArray = (start, end) => {
+        let hours = (start, end) => {
+            start = parseInt(start.replace(':', ''));
+            end = parseInt(end.replace(':', ''));
+            let hoursArray = [];
+            let integerToTime = (integer) => {
+                let time = integer.toString();
 
-            let addZero = () => {
-                return time.length <= 3 ? time.substr(0, 0) + '0' + time.substr(0) : time;
+                let addZero = () => {
+                    return time.length <= 3 ? time.substr(0, 0) + '0' + time.substr(0) : time;
+                };
+
+                let addColon = () => {
+                    return addZero(time).substr(0, 2) + ':' + addZero(time).substr(2);
+                };
+
+                return addColon().replace('50', '30');
             };
+            for (let i = start; i <= end; i += 50) {
+                hoursArray.push(integerToTime(i));
+            }
 
-            let addColon = () => {
-                return addZero(time).substr(0, 2) + ':' + addZero(time).substr(2);
-            };
-
-            return addColon().replace('50', '30');
+            return hoursArray;
         };
 
+        let timelineArray = () => {
+            let hoursArray = hours('09:00', '20:00');
+            return `${hoursArray.map((hour, index) => {
+                if (index <= hoursArray.length - 2) {
+                    console.log(`${hour}-${hoursArray[index + 1]} :: ${hoursArray.length - 1}`);
+                }
+            }).join('')}`;
+        };
 
-        for (let i = start; i <= end; i += 50) {
-            hoursArray.push(integerToTime(i));
-        }
-
-        return hoursArray;
+        return timelineArray();
     };
+
+    console.log(getTimelineArray());
 
     // let item = `
     //     <a href="#" class="list-group-item occupied">
