@@ -73,13 +73,23 @@ let DOMElements = {
 
 let renderLanes = () => {
     let ranges = LocalStorageManager(DataKeys.ranges).getData();
+    let percentage = () => {
+        let percent = Math.floor(Math.random() * 100);
+        return `
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="${percent}" aria-valuemin="0" aria-valuemax="100" style="width: ${percent}%;">
+                    ${percent}%
+                </div>
+            </div>`;
+
+    };
 
     if (LocalStorageManager(DataKeys.ranges).exemplaryData.isInstalled()) {
         return `${ranges.map(range => `
             <div class="range m-${range.size}">
                 <div class="label text-center"><h2 class="text-primary">${range.size}m</h2></div>
                 <div class="lanes">
-                    ${range.lanes.map(lane => `<div class="lane"><div class="position">${lane.number}</div><span class="badge pull-right">${Math.floor(Math.random() * 100)}%</span></div>`).join('')}
+                    ${range.lanes.map(lane => `<div class="lane"><div class="position">${lane.number}</div>${percentage()}</div>`).join('')}
                 </div>
             </div>`
         ).join('')}`;
@@ -87,6 +97,48 @@ let renderLanes = () => {
         return `<div class="alert alert-warning">No reservations yet. Please Install Exemplary Data.</div>`
     }
 };
+
+let renderTimeLine = () => {
+    let hours = (start, end) => {
+        start = parseInt(start.replace(':', ''));
+        end = parseInt(end.replace(':', ''));
+        let hoursArray = [];
+        let integerToTime = (integer) => {
+            let time = integer.toString();
+
+            let addZero = () => {
+                return time.length <= 3 ? time.substr(0, 0) + '0' + time.substr(0) : time;
+            };
+
+            let addColon = () => {
+                return addZero(time).substr(0, 2) + ':' + addZero(time).substr(2);
+            };
+
+            return addColon().replace('50', '30');
+        };
+
+
+        for (let i = start; i <= end; i += 50) {
+            hoursArray.push(integerToTime(i));
+        }
+
+        return hoursArray;
+    };
+
+    // let item = `
+    //     <a href="#" class="list-group-item occupied">
+    //         <h3 class="list-group-item-heading timeline-time"><span class="label-time text-center">09:00 - 10:00</span></h3>
+    //         <h4 class="list-group-item-heading">John Wick</h4>
+    //         <p class="list-group-item-text">Target Practice</p>
+    //     </a>`;
+    //
+    // return `
+    //     <div class="list-group timeline">
+    //         ${item}
+    //     </div>`;
+};
+
+renderTimeLine();
 
 
 let initEvents = () => {
