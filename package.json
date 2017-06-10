@@ -6,7 +6,8 @@
   "scripts": {
     "compile": "./node_modules/.bin/nodemon -e scss --exec \"node run.js\"",
     "livereload": "./node_modules/.bin/livereload",
-    "dev": "./node_modules/.bin/concurrently --kill-others \"npm run compile\" \"npm run livereload\""
+    "server": "node server.js",
+    "dev": "./node_modules/.bin/concurrently --kill-others \"npm run compile\" \"npm run livereload\" \"node server.js\""
   },
   "repository": {
     "type": "git",
@@ -17,8 +18,11 @@
   "homepage": "https://bitbucket.org/krzochalski/rangeman#readme",
   "devDependencies": {
     "concurrently": "^3.4.0",
+    "connect": "^3.6.2",
     "livereload": "^0.6.2",
     "node-sass": "^4.5.3",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "opn": "^5.1.0",
+    "serve-static": "^1.12.3"
   }
 }
