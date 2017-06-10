@@ -46,7 +46,6 @@ let RangesManager = {
 
             console.log(ranges);
             console.log(output);
-
         }
     }
 };
@@ -68,91 +67,87 @@ let DOMElements = {
     $exemplaryDataButtonClear: document.getElementById('exemplary-data-button-clear'),
     $tableContainer: document.getElementById('table-container'),
     $tableReservations: document.getElementById('table-reservations'),
-    $rangesContainer: document.getElementById('ranges-container')
+    $rangesContainer: document.getElementById('ranges-container'),
+    $rangesTimeline: document.getElementById('ranges-timeline')
 };
 
-let renderLanes = () => {
-    let ranges = LocalStorageManager(DataKeys.ranges).getData();
-    let percentage = () => {
-        let percent = Math.floor(Math.random() * 100);
-        return `
+const Render = {
+    lanes: () => {
+        let ranges = LocalStorageManager(DataKeys.ranges).getData();
+        let percentage = () => {
+            let percent = Math.floor(Math.random() * 100);
+            return `
             <div class="progress">
                 <div class="progress-bar" role="progressbar" aria-valuenow="${percent}" aria-valuemin="0" aria-valuemax="100" style="width: ${percent}%;">
                     ${percent}%
                 </div>
             </div>`;
 
-    };
+        };
 
-    if (LocalStorageManager(DataKeys.ranges).exemplaryData.isInstalled()) {
-        return `${ranges.map(range => `
+        if (LocalStorageManager(DataKeys.ranges).exemplaryData.isInstalled()) {
+            return `${ranges.map(range => `
             <div class="range m-${range.size}">
                 <div class="label text-center"><h2 class="text-primary">${range.size}m</h2></div>
                 <div class="lanes">
                     ${range.lanes.map(lane => `<div class="lane"><div class="position">${lane.number}</div>${percentage()}</div>`).join('')}
                 </div>
             </div>`
-        ).join('')}`;
-    } else {
-        return `<div class="alert alert-warning">No reservations yet. Please Install Exemplary Data.</div>`
+            ).join('')}`;
+        } else {
+            return `<div class="alert alert-warning">No reservations yet. Please Install Exemplary Data.</div>`
+        }
     }
 };
 
-let renderTimeLine = () => {
-    let getTimelineArray = (start, end) => {
-        let hours = (start, end) => {
-            start = parseInt(start.replace(':', ''));
-            end = parseInt(end.replace(':', ''));
-            let hoursArray = [];
-            let integerToTime = (integer) => {
-                let time = integer.toString();
+let renderTimeline = (start, end) => {
+    let template = (timeFrom, timeTo) => {
+        return `
+            <a data-time-from="${timeFrom}" data-time-to="${timeTo}" href="#" class="list-group-item">
+                <h4 class="list-group-item-heading timeline-time"><span class="label-time text-center">${timeFrom} - ${timeTo}</span></h4>
+                <h4 class="list-group-item-heading">&nbsp;</h4>
+            </a>`;
 
-                let addZero = () => {
-                    return time.length <= 3 ? time.substr(0, 0) + '0' + time.substr(0) : time;
-                };
-
-                let addColon = () => {
-                    return addZero(time).substr(0, 2) + ':' + addZero(time).substr(2);
-                };
-
-                return addColon().replace('50', '30');
-            };
-            for (let i = start; i <= end; i += 50) {
-                hoursArray.push(integerToTime(i));
-            }
-
-            return hoursArray;
-        };
-
-        let timelineArray = () => {
-            let hoursArray = hours('09:00', '20:00');
-            return `${hoursArray.map((hour, index) => {
-                if (index <= hoursArray.length - 2) {
-                    console.log(`${hour}-${hoursArray[index + 1]} :: ${hoursArray.length - 1}`);
-                }
-            }).join('')}`;
-        };
-
-        return timelineArray();
     };
 
-    console.log(getTimelineArray());
+    let hours = () => {
+        start = parseInt(start.replace(':', ''));
+        end = parseInt(end.replace(':', ''));
+        let hoursArray = [];
 
-    // let item = `
-    //     <a href="#" class="list-group-item occupied">
-    //         <h3 class="list-group-item-heading timeline-time"><span class="label-time text-center">09:00 - 10:00</span></h3>
-    //         <h4 class="list-group-item-heading">John Wick</h4>
-    //         <p class="list-group-item-text">Target Practice</p>
-    //     </a>`;
-    //
-    // return `
-    //     <div class="list-group timeline">
-    //         ${item}
-    //     </div>`;
+        let integerToTime = (integer) => {
+            integer = integer.toString();
+
+            if (integer.length <= 3) {
+                integer = (integer.substr(0, 0) + '0') + integer.substr(0)
+            }
+
+            const time = integer.substr(0, 2) + ':' + integer.substr(2);
+
+            return time.replace('50', '30');
+        };
+
+        for (let i = start; i <= end; i += 50) {
+            hoursArray.push(integerToTime(i));
+        }
+
+
+        return hoursArray;
+    };
+
+    let timelineHTML = () => {
+        let hoursArray = hours('09:00', '20:00');
+
+        return `${hoursArray.map((hour, index) => {
+            if (index <= hoursArray.length - 2) {
+                return template(hour, hoursArray[index + 1])
+            }
+        }).join('')}`;
+
+    };
+
+    return timelineHTML();
 };
-
-renderTimeLine();
-
 
 let initEvents = () => {
     DOMElements.$exemplaryDataButtonInstall.addEventListener('click', (event) => {
@@ -165,7 +160,8 @@ let initEvents = () => {
         LocalStorageManager(DataKeys.ranges).exemplaryData.clear();
     });
 
-    DOMElements.$rangesContainer.innerHTML = renderLanes();
+    DOMElements.$rangesContainer.innerHTML = Render.lanes();
+    DOMElements.$rangesTimeline.innerHTML = renderTimeline('09:00', '20:00');
 
 
     DOMElements.form.$form.addEventListener('submit', (event) => {
