@@ -1,4 +1,4 @@
-let RangesManager = {
+export default {
     ranges: {
         getAll: () => {
             if (!LocalStorageManager(DataKeys.ranges).exemplaryData.isInstalled()) {

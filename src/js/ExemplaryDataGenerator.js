@@ -1,6 +1,6 @@
 let currentDay = (days) => {
     let oneDay = 86400000,
-        daysCount = days === 0 ? 0 : days * oneDay;
+        daysCount = days === 0 ? 0 : days * oneDay,
         today = new Date(Date.now() + daysCount),
         getYear = (date) => date.getFullYear(),
         getMonth = (date) => date.getUTCMonth() < 10 ? `0${date.getUTCMonth() + 1}` : date.getUTCMonth() + 1,
@@ -10,9 +10,7 @@ let currentDay = (days) => {
     return getFullDate(today);
 };
 
-let ExemplaryData = () => {
-
-
+export default function() {
     return [
         {
             name: "range-1",

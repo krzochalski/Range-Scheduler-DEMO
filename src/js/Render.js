@@ -1,4 +1,8 @@
-const Render = {
+import LocalStorageManager from './LocalStorageManager';
+import DataKeys from './DataKeys';
+
+
+export default {
     ranges: () => {
         let ranges = LocalStorageManager(DataKeys.ranges).getData();
         let percentage = () => {

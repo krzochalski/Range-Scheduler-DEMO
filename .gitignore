@@ -1,4 +1,4 @@
 .idea/
-css/styles.css
 node_modules
+dist/styles.css
 npm-debug.log

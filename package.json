@@ -4,19 +4,22 @@
   "description": "Range Time Scheduling App",
   "main": "index.html",
   "scripts": {
-    "compile": "./node_modules/.bin/nodemon -e scss --exec \"node run.js\"",
+    "styles": "./node_modules/.bin/nodemon -e src --exec \"node styles.js\"",
     "livereload": "./node_modules/.bin/livereload",
     "server": "node server.js",
-    "dev": "./node_modules/.bin/concurrently --kill-others \"npm run compile\" \"npm run livereload\" \"node server.js\""
+    "js": "node babel.js",
+    "dev": "./node_modules/.bin/concurrently --kill-others \"npm run styles\" \"npm run livereload\" \"npm run server\""
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/krzochalski/rangeman.git"
+    "url": "https://github.com/krzochalski/Range-Scheduler-DEMO.git"
   },
   "author": "Piotr Krzoska",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/krzochalski/rangeman#readme",
+  "homepage": "https://github.com/krzochalski/Range-Scheduler-DEMO",
   "devDependencies": {
+    "babelify": "^7.3.0",
+    "browserify": "^14.4.0",
     "concurrently": "^3.4.0",
     "connect": "^3.6.2",
     "livereload": "^0.6.2",

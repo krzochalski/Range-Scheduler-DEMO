@@ -2,14 +2,14 @@ const sass = require('node-sass');
 const fs = require('fs');
 
 const Config = {
-    cssInput: './scss/styles.scss',
-    cssOutput: './css/styles.css'
+    cssInput: './src/scss/styles.scss',
+    cssOutput: './dist/styles.css'
 };
 
 sass.render(
     {
     file: Config.cssInput,
-    outFile: './css/styles.css',
+    outFile: './dist/styles.css',
     outputStyle: 'compressed'
     },
     (error, result) => {
@@ -19,7 +19,7 @@ sass.render(
             console.log(error.message);
             console.log(error.line);
         } else {
-            fs.writeFile('./css/styles.css', result.css, () => {
+            fs.writeFile('./dist/styles.css', result.css, () => {
                 console.log(result.stats);
             });
         }

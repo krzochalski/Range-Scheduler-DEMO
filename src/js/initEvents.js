@@ -1,4 +1,8 @@
-let initEvents = () => {
+import DOMElements from './DOMElements';
+import Render from './Render';
+import LocalStorageManager from './LocalStorageManager';
+
+export default function () {
     DOMElements.$exemplaryDataButtonInstall.addEventListener('click', (event) => {
         event.preventDefault();
         LocalStorageManager(DataKeys.ranges).exemplaryData.install();

@@ -1,4 +1,7 @@
-let ReservationsManager = {
+import LocalStorageManager from './LocalStorageManager';
+import DataKeys from './DataKeys';
+
+export default  {
     reservations: {
         getAll: () => {
             LocalStorageManager(DataKeys.ranges).exemplaryData.get();

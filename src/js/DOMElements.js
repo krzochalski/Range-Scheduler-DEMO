@@ -1,4 +1,4 @@
-let DOMElements = {
+export default {
     form: {
         $form: document.getElementById('form'),
         $inputName: document.getElementById('form-name'),

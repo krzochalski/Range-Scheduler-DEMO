@@ -1,8 +1,4 @@
-const DataKeys = {
-    ranges: 'rangesData'
-};
-
-let LocalStorageManager = (key) => {
+export default function (key) {
     let saveData = (data) => {
         localStorage.setItem(key, JSON.stringify(data))
     };
@@ -71,4 +67,4 @@ let LocalStorageManager = (key) => {
             }
         }
     };
-};
+}
