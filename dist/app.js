@@ -735,8 +735,6 @@ var _initEvents2 = _interopRequireDefault(_initEvents);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-console.log('');
-
 var App = {
     init: function init() {
         (0, _initEvents2.default)();

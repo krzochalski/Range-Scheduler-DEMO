@@ -9,8 +9,6 @@ import ExemplaryDataGenerator from './ExemplaryDataGenerator';
 
 import initEvents from './initEvents';
 
-console.log('');
-
 const App = {
     init: () => {
         initEvents();
