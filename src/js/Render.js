@@ -1,8 +1,7 @@
 import LocalStorageManager from './LocalStorageManager';
 import DataKeys from './DataKeys';
-import progressBar from './templates/progressBar';
-
-
+import progressBarTemplate from './templates/progressBar.template';
+import alertTemplate from  './templates/alert.template'
 
 export default {
     ranges: () => {
@@ -16,14 +15,14 @@ export default {
                     ${range.lanes.map(lane => `
                         <div class="lane">
                             <div class="position">${lane.number}</div>
-                            ${progressBar(Math.floor(Math.random() * 100))}
+                            ${progressBarTemplate(Math.floor(Math.random() * 100))}
                         </div>
                     `).join('')}
                 </div>
             </div>`
             ).join('')}`;
         } else {
-            return `<div class="alert alert-warning">No reservations yet. Please Install Exemplary Data.</div>`
+            return alertTemplate('No reservations yet. Please Install Exemplary Data', 'warning');
         }
     },
     timeline: (start, end) => {
@@ -33,7 +32,6 @@ export default {
                 <h4 class="list-group-item-heading timeline-time"><span class="label-time text-center">${timeFrom} - ${timeTo}</span></h4>
                 <h4 class="list-group-item-heading">&nbsp;</h4>
             </a>`;
-
         };
 
         let hours = () => {
@@ -56,7 +54,6 @@ export default {
             for (let i = start; i <= end; i += 50) {
                 hoursArray.push(integerToTime(i));
             }
-
 
             return hoursArray;
         };

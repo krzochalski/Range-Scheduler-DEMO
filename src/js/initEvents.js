@@ -1,6 +1,7 @@
 import DOMElements from './DOMElements';
 import Render from './Render';
 import LocalStorageManager from './LocalStorageManager';
+import DataKeys from './DataKeys';
 
 export default function () {
     DOMElements.$exemplaryDataButtonInstall.addEventListener('click', (event) => {
