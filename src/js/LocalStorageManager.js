@@ -1,3 +1,5 @@
+import exemplaryData from './ExemplaryDataGenerator';
+
 export default function (key) {
     let saveData = (data) => {
         localStorage.setItem(key, JSON.stringify(data))
@@ -10,9 +12,9 @@ export default function (key) {
     return {
         exemplaryData: {
             install: () => {
-                saveData(ExemplaryData());
+                saveData(exemplaryData());
 
-                if (localStorage.getItem(key) === JSON.stringify(ExemplaryData())) {
+                if (localStorage.getItem(key) === JSON.stringify(exemplaryData())) {
                     console.log('%cExemplary data has been installed', 'color: green');
                 }
             },
@@ -27,7 +29,7 @@ export default function (key) {
                 if (exemplaryDataInstalled) {
                     console.log('%cData not installed', 'color: red');
                 } else {
-                    console.table(ExemplaryData());
+                    console.table(exemplaryData());
                 }
             },
             isInstalled: () => {
