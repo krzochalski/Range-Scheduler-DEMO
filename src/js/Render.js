@@ -1,27 +1,24 @@
 import LocalStorageManager from './LocalStorageManager';
 import DataKeys from './DataKeys';
+import progressBar from './templates/progressBar';
+
 
 
 export default {
     ranges: () => {
         let ranges = LocalStorageManager(DataKeys.ranges).getData();
-        let percentage = () => {
-            let percent = Math.floor(Math.random() * 100);
-            return `
-            <div class="progress">
-                <div class="progress-bar" role="progressbar" aria-valuenow="${percent}" aria-valuemin="0" aria-valuemax="100" style="width: ${percent}%;">
-                    ${percent}%
-                </div>
-            </div>`;
-
-        };
 
         if (LocalStorageManager(DataKeys.ranges).exemplaryData.isInstalled()) {
             return `${ranges.map(range => `
             <div class="range m-${range.size}">
                 <div class="label text-center"><h2 class="text-primary">${range.size}m</h2></div>
                 <div class="lanes">
-                    ${range.lanes.map(lane => `<div class="lane"><div class="position">${lane.number}</div>${percentage()}</div>`).join('')}
+                    ${range.lanes.map(lane => `
+                        <div class="lane">
+                            <div class="position">${lane.number}</div>
+                            ${progressBar(Math.floor(Math.random() * 100))}
+                        </div>
+                    `).join('')}
                 </div>
             </div>`
             ).join('')}`;

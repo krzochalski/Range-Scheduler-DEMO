@@ -1,0 +1,14 @@
+export default function (percent) {
+    return `
+        <div class="progress">
+            <div class="progress-bar" 
+                 role="progressbar"
+                 aria-valuenow="${percent}"
+                 aria-valuemin="0"
+                 aria-valuemax="100"
+                 style="width: ${percent}%;">
+                ${percent}%
+            </div>
+        </div>
+    `;
+}
