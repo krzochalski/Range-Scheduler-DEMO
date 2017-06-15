@@ -2,12 +2,13 @@ import LocalStorageManager from './LocalStorageManager';
 import DataKeys from './DataKeys';
 import progressBarTemplate from './templates/progressBar.template';
 import alertTemplate from  './templates/alert.template'
+import dataManager from './data/manager.data';
 
 export default {
     ranges: () => {
         let ranges = LocalStorageManager(DataKeys.ranges).getData();
 
-        if (LocalStorageManager(DataKeys.ranges).exemplaryData.isInstalled()) {
+        if (!dataManager.isExemplaryDataInstalled(DataKeys.ranges)) {
             return `${ranges.map(range => `
             <div class="range m-${range.size}">
                 <div class="label text-center"><h2 class="text-primary">${range.size}m</h2></div>

@@ -1,4 +1,4 @@
-import {getDay} from './utlils/date.util';
+import {getDay} from '../../utils/date.util';
 
 export default [
     {

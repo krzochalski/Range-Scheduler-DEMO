@@ -2,7 +2,8 @@ import DOMElements from './DOMElements';
 import Render from './Render';
 import LocalStorageManager from './LocalStorageManager';
 import DataKeys from './DataKeys';
-import {getDay} from './utlils/date.util';
+import exemplaryDataInstaller from './data/exemplary/installer';
+import {getDay} from './utils/date.util';
 
 let displayReservations = e => {
     let reservations = LocalStorageManager()
@@ -14,17 +15,18 @@ let displayReservations = e => {
         .reservations;
 
     console.log(reservations);
+    console.log(getDay());
 };
 
 export default function () {
     DOMElements.$exemplaryDataButtonInstall.addEventListener('click', (event) => {
         event.preventDefault();
-        LocalStorageManager(DataKeys.ranges).exemplaryData.install();
+        exemplaryDataInstaller.install();
     });
 
     DOMElements.$exemplaryDataButtonClear.addEventListener('click', (event) => {
         event.preventDefault();
-        LocalStorageManager(DataKeys.ranges).exemplaryData.clear();
+        exemplaryDataInstaller.clear();
     });
 
     DOMElements.$rangesContainer.innerHTML = Render.ranges();
