@@ -15,7 +15,7 @@ let displayReservations = e => {
         .reservations;
 
     console.log(reservations);
-    console.log(getDay());
+    console.log(getDay('today'));
 };
 
 export default function () {

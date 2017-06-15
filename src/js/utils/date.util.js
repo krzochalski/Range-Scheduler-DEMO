@@ -3,6 +3,11 @@ export function getDay (dayCount) {
         dayCount = 0;
     }
 
+    if (!Number.isInteger(dayCount)) {
+        console.error('Error: getDay() argument should be a number');
+        return false;
+    }
+
     let oneDayInMs = 86400000,
         daysCount = dayCount === 0 ? 0 : dayCount * oneDayInMs,
         today = new Date(Date.now() + daysCount),
