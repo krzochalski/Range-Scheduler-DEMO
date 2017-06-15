@@ -11,9 +11,9 @@ export default {
             return `${ranges.map(range => `
             <div class="range m-${range.size}">
                 <div class="label text-center"><h2 class="text-primary">${range.size}m</h2></div>
-                <div class="lanes">
+                <div class="lanes" >
                     ${range.lanes.map(lane => `
-                        <div class="lane">
+                        <div class="lane" data-lanenumber="${lane.number}" data-rangename="${range.name}">
                             <div class="position">${lane.number}</div>
                             ${progressBarTemplate(Math.floor(Math.random() * 100))}
                         </div>

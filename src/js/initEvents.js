@@ -2,6 +2,19 @@ import DOMElements from './DOMElements';
 import Render from './Render';
 import LocalStorageManager from './LocalStorageManager';
 import DataKeys from './DataKeys';
+import {getDay} from './utlils/date.util';
+
+let displayReservations = e => {
+    let reservations = LocalStorageManager()
+        .collection(DataKeys.ranges)
+        .getAll()
+        .find(range => range.name === e.target.dataset.rangename)
+        .lanes
+        .find(lane => lane.number === e.target.dataset.lanenumber)
+        .reservations;
+
+    console.log(reservations);
+};
 
 export default function () {
     DOMElements.$exemplaryDataButtonInstall.addEventListener('click', (event) => {
@@ -17,6 +30,9 @@ export default function () {
     DOMElements.$rangesContainer.innerHTML = Render.ranges();
     DOMElements.$rangesTimeline.innerHTML = Render.timeline('09:00', '20:00');
 
+    for (let i = 0; i < DOMElements.$lane.length; i++) {
+        DOMElements.$lane[i].addEventListener('click', displayReservations);
+    }
 
     DOMElements.form.$form.addEventListener('submit', (event) => {
         event.preventDefault();
@@ -30,8 +46,6 @@ export default function () {
                 stop: DOMElements.form.$inputStop.value
             }
         };
-
-        console.log(reservationData);
 
         ReservationsManager.reservations.add(reservationData);
     });

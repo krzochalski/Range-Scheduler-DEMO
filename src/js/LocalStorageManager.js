@@ -12,9 +12,9 @@ export default function (key) {
     return {
         exemplaryData: {
             install: () => {
-                saveData(exemplaryData());
+                saveData(exemplaryData);
 
-                if (localStorage.getItem(key) === JSON.stringify(exemplaryData())) {
+                if (localStorage.getItem(key) === JSON.stringify(exemplaryData)) {
                     console.log('%cExemplary data has been installed', 'color: green');
                 }
             },
@@ -29,13 +29,14 @@ export default function (key) {
                 if (exemplaryDataInstalled) {
                     console.log('%cData not installed', 'color: red');
                 } else {
-                    console.table(exemplaryData());
+                    console.table(exemplaryData);
                 }
             },
             isInstalled: () => {
                 return !exemplaryDataInstalled();
             }
         },
+
         getData: () => {
             return JSON.parse(localStorage.getItem(key));
         },

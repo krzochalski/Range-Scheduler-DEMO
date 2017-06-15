@@ -14,5 +14,7 @@ export default {
     $tableContainer: document.getElementById('table-container'),
     $tableReservations: document.getElementById('table-reservations'),
     $rangesContainer: document.getElementById('ranges-container'),
+    $lanesContainer: document.getElementsByClassName('lanes'),
+    $lane: document.getElementsByClassName('lane'),
     $rangesTimeline: document.getElementById('ranges-timeline')
 };
