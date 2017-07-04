@@ -1,3 +1,4 @@
 export default {
-    ranges: 'rangesData'
+    ranges: 'rangesData',
+    day: 'selectedDay'
 };

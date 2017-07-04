@@ -3,12 +3,14 @@
   .list-group-item {
     padding-left: 170px + 15px;
 
-    &:hover {
-      background-color: #2780e3;
-    }
+      &:not(.occupied):hover {
+          outline: 2px dashed black;
+          cursor: pointer;
+      }
 
     &.occupied {
-      background-color: #f5f5f5;
+      color: white;
+        cursor: not-allowed;
     }
   }
 

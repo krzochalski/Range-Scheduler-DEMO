@@ -16,21 +16,19 @@ export default [
                                 "fullname": "John Wick",
                                 "telephone": "111222333",
                                 "email": "john.wick@example.com",
-                                "start": "10:00",
-                                "stop": "12:00"
+                                "times": ["10:00-10:30", "10:30-11:00"]
                             },
                             {
                                 "fullname": "John Rambo",
                                 "telephone": "111222333",
                                 "email": "john.rambo@example.com",
-                                "start": "14:00",
-                                "stop": "15:00"
+                                "times": ["12:00-12:30", "12:30-13:00"]
+
                             },
                             {
                                 "fullname": "Encino Man",
                                 "email": "encino.man@example.com",
-                                "start": "17:00",
-                                "stop": "19:00"
+                                "times": ["14:00-14:30", "15:00-15:30"]
                             }
                         ]
                     },
@@ -41,29 +39,25 @@ export default [
                                 "fullname": "Ron Swanson",
                                 "telephone": "111222333",
                                 "email": "i.do.not.have.an@email.com",
-                                "start": "09:00",
-                                "stop": "12:00"
+                                "times": ["10:00-10:30", "10:30-11:00"]
                             },
                             {
                                 "fullname": "Captain America",
                                 "telephone": "111222333",
                                 "email": "captain.america@example.com",
-                                "start": "13:00",
-                                "stop": "15:00"
+                                "times": ["12:00-12:30", "12:30-13:00"]
                             },
                             {
                                 "fullname": "Fruity Rudy",
                                 "telephone": "111222333",
                                 "email": "fruity.rudy@example.com",
-                                "start": "17:00",
-                                "stop": "19:00"
+                                "times": ["14:00-14:30", "15:00-15:30"]
                             },
                             {
                                 "fullname": "Sam Fisher",
                                 "telephone": "111222333",
                                 "email": "sam.fisher@example.com",
-                                "start": "15:00",
-                                "stop": "16:00"
+                                "times": ["15:00-15:30", "15:30-16:00"]
                             }
                         ]
                     },
@@ -74,15 +68,13 @@ export default [
                                 "fullname": "Rocky Balboa",
                                 "telephone": "111222333",
                                 "email": "rocky.balboa@example.com",
-                                "start": "12:00",
-                                "stop": "13:00"
+                                "times": ["12:00-12:30", "12:30-13:00"]
                             },
                             {
                                 "fullname": "Private Ryan",
                                 "telephone": "111222333",
                                 "email": "private.ryan@example.com",
-                                "start": "09:00",
-                                "stop": "10:00"
+                                "times": ["09:00-09:30"]
                             }
                         ]
                     }
@@ -99,21 +91,19 @@ export default [
                                 "fullname": "John Wick",
                                 "telephone": "111222333",
                                 "email": "john.wick@example.com",
-                                "start": "10:00",
-                                "stop": "12:00"
+                                "times": ["10:00-10:30", "10:30-11:00"]
                             },
                             {
                                 "fullname": "John Rambo",
                                 "telephone": "111222333",
                                 "email": "john.rambo@example.com",
-                                "start": "14:00",
-                                "stop": "15:00"
+                                "times": ["12:00-12:30", "12:30-13:00"]
+
                             },
                             {
                                 "fullname": "Encino Man",
                                 "email": "encino.man@example.com",
-                                "start": "17:00",
-                                "stop": "19:00"
+                                "times": ["14:00-14:30", "15:00-15:30"]
                             }
                         ]
                     },
@@ -121,32 +111,28 @@ export default [
                         "day": getDay(0),
                         "reservations": [
                             {
-                                "fullname": "Ron Swanson",
+                                "fullname": "James Bond",
                                 "telephone": "111222333",
-                                "email": "i.do.not.have.an@email.com",
-                                "start": "09:00",
-                                "stop": "12:00"
+                                "email": "zero.zero.seven@email.com",
+                                "times": ["10:00-10:30", "10:30-11:00"]
                             },
                             {
-                                "fullname": "Captain America",
+                                "fullname": "Strielok",
                                 "telephone": "111222333",
-                                "email": "captain.america@example.com",
-                                "start": "13:00",
-                                "stop": "15:00"
+                                "email": "strielok@example.com",
+                                "times": ["11:00-11:30", "11:30-12:00"]
                             },
                             {
                                 "fullname": "Fruity Rudy",
                                 "telephone": "111222333",
                                 "email": "fruity.rudy@example.com",
-                                "start": "17:00",
-                                "stop": "19:00"
+                                "times": ["14:00-14:30", "15:00-15:30"]
                             },
                             {
                                 "fullname": "Sam Fisher",
                                 "telephone": "111222333",
                                 "email": "sam.fisher@example.com",
-                                "start": "15:00",
-                                "stop": "16:00"
+                                "times": ["15:00-15:30", "15:30-16:00"]
                             }
                         ]
                     },
@@ -154,18 +140,16 @@ export default [
                         "day": getDay(1),
                         "reservations": [
                             {
-                                "fullname": "Rocky Balboa",
+                                "fullname": "Tommy Vercetti",
                                 "telephone": "111222333",
-                                "email": "rocky.balboa@example.com",
-                                "start": "12:00",
-                                "stop": "13:00"
+                                "email": "tommy.vercetti@example.com",
+                                "times": ["12:00-12:30", "12:30-13:00"]
                             },
                             {
                                 "fullname": "Private Ryan",
                                 "telephone": "111222333",
                                 "email": "private.ryan@example.com",
-                                "start": "09:00",
-                                "stop": "10:00"
+                                "times": ["09:00-09:30"]
                             }
                         ]
                     }
@@ -182,21 +166,19 @@ export default [
                                 "fullname": "John Wick",
                                 "telephone": "111222333",
                                 "email": "john.wick@example.com",
-                                "start": "10:00",
-                                "stop": "12:00"
+                                "times": ["10:00-10:30", "10:30-11:00"]
                             },
                             {
                                 "fullname": "John Rambo",
                                 "telephone": "111222333",
                                 "email": "john.rambo@example.com",
-                                "start": "14:00",
-                                "stop": "15:00"
+                                "times": ["12:00-12:30", "12:30-13:00"]
+
                             },
                             {
                                 "fullname": "Encino Man",
                                 "email": "encino.man@example.com",
-                                "start": "17:00",
-                                "stop": "19:00"
+                                "times": ["14:00-14:30", "15:00-15:30"]
                             }
                         ]
                     },
@@ -207,29 +189,25 @@ export default [
                                 "fullname": "Ron Swanson",
                                 "telephone": "111222333",
                                 "email": "i.do.not.have.an@email.com",
-                                "start": "09:00",
-                                "stop": "12:00"
+                                "times": ["10:00-10:30", "10:30-11:00"]
                             },
                             {
-                                "fullname": "Captain America",
+                                "fullname": "Tommy Vercetti",
                                 "telephone": "111222333",
-                                "email": "captain.america@example.com",
-                                "start": "13:00",
-                                "stop": "15:00"
+                                "email": "tommy.vercetti@example.com",
+                                "times": ["12:00-12:30", "12:30-13:00"]
                             },
                             {
                                 "fullname": "Fruity Rudy",
                                 "telephone": "111222333",
                                 "email": "fruity.rudy@example.com",
-                                "start": "17:00",
-                                "stop": "19:00"
+                                "times": ["14:00-14:30", "15:00-15:30"]
                             },
                             {
                                 "fullname": "Sam Fisher",
                                 "telephone": "111222333",
                                 "email": "sam.fisher@example.com",
-                                "start": "15:00",
-                                "stop": "16:00"
+                                "times": ["15:00-15:30", "15:30-16:00"]
                             }
                         ]
                     },
@@ -240,15 +218,13 @@ export default [
                                 "fullname": "Rocky Balboa",
                                 "telephone": "111222333",
                                 "email": "rocky.balboa@example.com",
-                                "start": "12:00",
-                                "stop": "13:00"
+                                "times": ["12:00-12:30", "12:30-13:00"]
                             },
                             {
                                 "fullname": "Private Ryan",
                                 "telephone": "111222333",
                                 "email": "private.ryan@example.com",
-                                "start": "09:00",
-                                "stop": "10:00"
+                                "times": ["09:00-09:30"]
                             }
                         ]
                     }
@@ -265,21 +241,19 @@ export default [
                                 "fullname": "John Wick",
                                 "telephone": "111222333",
                                 "email": "john.wick@example.com",
-                                "start": "10:00",
-                                "stop": "12:00"
+                                "times": ["10:00-10:30", "10:30-11:00"]
                             },
                             {
                                 "fullname": "John Rambo",
                                 "telephone": "111222333",
                                 "email": "john.rambo@example.com",
-                                "start": "14:00",
-                                "stop": "15:00"
+                                "times": ["12:00-12:30", "12:30-13:00"]
+
                             },
                             {
                                 "fullname": "Encino Man",
                                 "email": "encino.man@example.com",
-                                "start": "17:00",
-                                "stop": "19:00"
+                                "times": ["14:00-14:30", "15:00-15:30"]
                             }
                         ]
                     },
@@ -290,29 +264,25 @@ export default [
                                 "fullname": "Ron Swanson",
                                 "telephone": "111222333",
                                 "email": "i.do.not.have.an@email.com",
-                                "start": "09:00",
-                                "stop": "12:00"
+                                "times": ["10:00-10:30", "10:30-11:00"]
                             },
                             {
                                 "fullname": "Captain America",
                                 "telephone": "111222333",
                                 "email": "captain.america@example.com",
-                                "start": "13:00",
-                                "stop": "15:00"
+                                "times": ["12:00-12:30", "12:30-13:00"]
                             },
                             {
                                 "fullname": "Fruity Rudy",
                                 "telephone": "111222333",
                                 "email": "fruity.rudy@example.com",
-                                "start": "17:00",
-                                "stop": "19:00"
+                                "times": ["14:00-14:30", "15:00-15:30"]
                             },
                             {
                                 "fullname": "Sam Fisher",
                                 "telephone": "111222333",
                                 "email": "sam.fisher@example.com",
-                                "start": "15:00",
-                                "stop": "16:00"
+                                "times": ["15:00-15:30", "15:30-16:00"]
                             }
                         ]
                     },
@@ -323,15 +293,13 @@ export default [
                                 "fullname": "Rocky Balboa",
                                 "telephone": "111222333",
                                 "email": "rocky.balboa@example.com",
-                                "start": "12:00",
-                                "stop": "13:00"
+                                "times": ["12:00-12:30", "12:30-13:00"]
                             },
                             {
                                 "fullname": "Private Ryan",
                                 "telephone": "111222333",
                                 "email": "private.ryan@example.com",
-                                "start": "09:00",
-                                "stop": "10:00"
+                                "times": ["09:00-09:30"]
                             }
                         ]
                     }
@@ -348,21 +316,19 @@ export default [
                                 "fullname": "John Wick",
                                 "telephone": "111222333",
                                 "email": "john.wick@example.com",
-                                "start": "10:00",
-                                "stop": "12:00"
+                                "times": ["10:00-10:30", "10:30-11:00"]
                             },
                             {
                                 "fullname": "John Rambo",
                                 "telephone": "111222333",
                                 "email": "john.rambo@example.com",
-                                "start": "14:00",
-                                "stop": "15:00"
+                                "times": ["12:00-12:30", "12:30-13:00"]
+
                             },
                             {
                                 "fullname": "Encino Man",
                                 "email": "encino.man@example.com",
-                                "start": "17:00",
-                                "stop": "19:00"
+                                "times": ["14:00-14:30", "15:00-15:30"]
                             }
                         ]
                     },
@@ -373,29 +339,25 @@ export default [
                                 "fullname": "Ron Swanson",
                                 "telephone": "111222333",
                                 "email": "i.do.not.have.an@email.com",
-                                "start": "09:00",
-                                "stop": "12:00"
+                                "times": ["10:00-10:30", "10:30-11:00"]
                             },
                             {
                                 "fullname": "Captain America",
                                 "telephone": "111222333",
                                 "email": "captain.america@example.com",
-                                "start": "13:00",
-                                "stop": "15:00"
+                                "times": ["12:00-12:30", "12:30-13:00"]
                             },
                             {
                                 "fullname": "Fruity Rudy",
                                 "telephone": "111222333",
                                 "email": "fruity.rudy@example.com",
-                                "start": "17:00",
-                                "stop": "19:00"
+                                "times": ["14:00-14:30", "15:00-15:30"]
                             },
                             {
                                 "fullname": "Sam Fisher",
                                 "telephone": "111222333",
                                 "email": "sam.fisher@example.com",
-                                "start": "15:00",
-                                "stop": "16:00"
+                                "times": ["15:00-15:30", "15:30-16:00"]
                             }
                         ]
                     },
@@ -406,15 +368,13 @@ export default [
                                 "fullname": "Rocky Balboa",
                                 "telephone": "111222333",
                                 "email": "rocky.balboa@example.com",
-                                "start": "12:00",
-                                "stop": "13:00"
+                                "times": ["12:00-12:30", "12:30-13:00"]
                             },
                             {
                                 "fullname": "Private Ryan",
                                 "telephone": "111222333",
                                 "email": "private.ryan@example.com",
-                                "start": "09:00",
-                                "stop": "10:00"
+                                "times": ["09:00-09:30"]
                             }
                         ]
                     }

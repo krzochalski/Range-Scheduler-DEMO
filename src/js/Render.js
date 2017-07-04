@@ -29,10 +29,10 @@ export default {
     timeline: (start, end) => {
         let template = (timeFrom, timeTo) => {
             return `
-            <a data-time-from="${timeFrom}" data-time-to="${timeTo}" href="#" class="list-group-item">
-                <h4 class="list-group-item-heading timeline-time"><span class="label-time text-center">${timeFrom} - ${timeTo}</span></h4>
-                <h4 class="list-group-item-heading">&nbsp;</h4>
-            </a>`;
+            <div href="#" class="timeline-element list-group-item" data-time="${timeFrom}-${timeTo}">
+                <h4 class="timeline-time list-group-item-heading"><span class="label-time text-center">${timeFrom} - ${timeTo}</span></h4>
+                <h4 class="timeline-fullname list-group-item-heading"><span class="label-fullname">&nbsp;</span></h4>
+            </div>`;
         };
 
         let hours = () => {

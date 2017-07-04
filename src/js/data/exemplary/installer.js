@@ -5,6 +5,7 @@ import exemplaryData from './generator.data'
 export default {
     install: () => {
         localStorage.setItem(dataKeys.ranges, JSON.stringify(exemplaryData));
+        localStorage.setItem(dataKeys.day, 'today');
 
         if (localStorage.getItem(dataKeys.ranges) === JSON.stringify(exemplaryData)) {
             console.log('%cExemplary data has been installed', 'color: green');
