@@ -1,32 +1,38 @@
 .timeline {
 
-  .list-group-item {
-    padding-left: 170px + 15px;
+    .list-group-item {
+        padding: 5px 10px 5px 170px + 15px;
 
-      &:not(.occupied):hover {
-          outline: 2px dashed black;
-          cursor: pointer;
-      }
+        &:not(.occupied):hover {
+            outline: 2px dashed black;
+            cursor: pointer;
+        }
 
-    &.occupied {
-      color: white;
-        cursor: not-allowed;
+        &.occupied {
+            color: white;
+            cursor: not-allowed;
+        }
+
+        .list-group-item-heading {
+            line-height: 1;
+            margin-bottom: 0;
+        }
     }
-  }
 
-  &-time {
-    position: absolute;
-    width: 170px;
-    height: 100%;
-    border-right: 1px solid #dddddd;
-    top: 0; left: 0;
+    &-time {
+        position: absolute;
+        width: 170px;
+        height: 100%;
+        border-right: 1px solid #dddddd;
+        top: 0;
+        left: 0;
 
-    .label-time {
-      position: absolute;
-      vertical-align: middle;
-      width: 100%;
-      top: 50%;
-      transform: translateY(-50%);
+        .label-time {
+            position: absolute;
+            vertical-align: middle;
+            width: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
     }
-  }
 }

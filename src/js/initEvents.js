@@ -13,34 +13,26 @@ let displayReservations = e => {
         .lanes
         .find(lane => lane.number === e.target.dataset.lanenumber)
         .reservations;
+    let timelineElements = document.getElementsByClassName('timeline-element');
 
-    console.log(e.target.classList.add('bg-danger'));
-    // console.log(getDay('today'));
+    for (let sibling of e.target.parentElement.getElementsByClassName('lane')) {sibling.classList.remove('active')}
+    e.target.classList.add('active');
 
 
-
-    (() => {
-        setTimeout(() => {
-            let timelineElements = document.getElementsByClassName('timeline-element');
-
-            for (let i = 0; i < reservations.length; i++) {
-                if (reservations[i].day === getDay(localStorage.getItem(DataKeys.day))) {
-                    for (let reservation of reservations[i].reservations) {
-                        for (let time of reservation.times) {
-                            console.log(reservation);
-                            for (let i = 0; i < timelineElements.length; i++) {
-                                if (time === timelineElements[i].dataset.time) {
-                                    timelineElements[i].classList.add('bg-primary', 'occupied');
-                                    timelineElements[i].querySelector('.label-fullname').innerText = reservation.fullname;
-                                }
-                            }
+    for (let i = 0; i < reservations.length; i++) {
+        if (reservations[i].day === getDay(localStorage.getItem(DataKeys.day))) {
+            for (let reservation of reservations[i].reservations) {
+                for (let time of reservation.times) {
+                    for (let i = 0; i < timelineElements.length; i++) {
+                        if (time === timelineElements[i].dataset.time) {
+                            timelineElements[i].classList.add('bg-primary', 'occupied');
+                            timelineElements[i].querySelector('.label-fullname').innerText = reservation.fullname;
                         }
                     }
                 }
             }
-
-        }, 100);
-    })();
+        }
+    }
 };
 
 export default function () {

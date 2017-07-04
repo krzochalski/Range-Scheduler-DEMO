@@ -10,17 +10,13 @@ export default {
 
         if (!dataManager.isExemplaryDataInstalled(DataKeys.ranges)) {
             return `${ranges.map(range => `
-            <div class="range m-${range.size}">
-                <div class="label text-center"><h2 class="text-primary">${range.size}m</h2></div>
-                <div class="lanes" >
+                <ul class="list-group range m-${range.size}">
                     ${range.lanes.map(lane => `
-                        <div class="lane" data-lanenumber="${lane.number}" data-rangename="${range.name}">
-                            <div class="position">${lane.number}</div>
-                            ${progressBarTemplate(Math.floor(Math.random() * 100))}
-                        </div>
+                        <li class="list-group-item lane" data-lanenumber="${lane.number}" data-rangename="${range.name}">
+                            Lane ${lane.number}
+                        </li>
                     `).join('')}
-                </div>
-            </div>`
+                </ul>`
             ).join('')}`;
         } else {
             return alertTemplate('No reservations yet. Please Install Exemplary Data', 'warning');
@@ -30,8 +26,8 @@ export default {
         let template = (timeFrom, timeTo) => {
             return `
             <div href="#" class="timeline-element list-group-item" data-time="${timeFrom}-${timeTo}">
-                <h4 class="timeline-time list-group-item-heading"><span class="label-time text-center">${timeFrom} - ${timeTo}</span></h4>
-                <h4 class="timeline-fullname list-group-item-heading"><span class="label-fullname">&nbsp;</span></h4>
+                <h5 class="timeline-time list-group-item-heading"><span class="label-time text-center">${timeFrom} - ${timeTo}</span></h5>
+                <h5 class="timeline-fullname list-group-item-heading"><span class="label-fullname">&nbsp;</span></h5>
             </div>`;
         };
 
