@@ -38,7 +38,7 @@ let displayReservations = e => {
 export default function () {
     DOMElements.$exemplaryDataButtonInstall.addEventListener('click', (event) => {
         event.preventDefault();
-        exemplaryDataInstaller.install();
+        exemplaryDataInstaller.reinstall();
     });
 
     DOMElements.$exemplaryDataButtonClear.addEventListener('click', (event) => {
@@ -52,6 +52,7 @@ export default function () {
     for (let i = 0; i < DOMElements.$lane.length; i++) {
         DOMElements.$lane[i].addEventListener('click', displayReservations);
     }
+    DOMElements.$lane[0].click();
 
     DOMElements.form.$form.addEventListener('submit', (event) => {
         event.preventDefault();
