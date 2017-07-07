@@ -1,4 +1,5 @@
 export default {
     ranges: 'rangesData',
-    day: 'selectedDay'
+    day: 'selectedDay',
+    name: 'name'
 };

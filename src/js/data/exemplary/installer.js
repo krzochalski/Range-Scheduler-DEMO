@@ -23,7 +23,6 @@ class ExemplaryDataInstaller {
     reinstall() {
         this.clear();
         this.install();
-        location.reload();
     }
 
     get() {

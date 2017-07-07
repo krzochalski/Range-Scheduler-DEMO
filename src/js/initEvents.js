@@ -4,6 +4,7 @@ import LocalStorageManager from './LocalStorageManager';
 import DataKeys from './DataKeys';
 import exemplaryDataInstaller from './data/exemplary/installer';
 import {getDay} from './utils/date.util';
+import login from './login';
 
 let displayReservations = e => {
     let reservations = LocalStorageManager()
@@ -39,11 +40,13 @@ export default function () {
     DOMElements.$exemplaryDataButtonInstall.addEventListener('click', (event) => {
         event.preventDefault();
         exemplaryDataInstaller.reinstall();
+        location.reload();
     });
 
     DOMElements.$exemplaryDataButtonClear.addEventListener('click', (event) => {
         event.preventDefault();
         exemplaryDataInstaller.clear();
+        location.reload();
     });
 
     DOMElements.$rangesContainer.innerHTML = Render.ranges();
@@ -54,19 +57,9 @@ export default function () {
     }
     DOMElements.$lane[0].click();
 
-    DOMElements.form.$form.addEventListener('submit', (event) => {
-        event.preventDefault();
-        let reservationData = {
-            day: DOMElements.form.$inputDate.value,
-            reservations: {
-                fullname: DOMElements.form.$inputName.value,
-                telephone: DOMElements.form.$inputTelephone.value,
-                email: DOMElements.form.$inputEmail.value,
-                start: DOMElements.form.$inputStart.value,
-                stop: DOMElements.form.$inputStop.value
-            }
-        };
+    DOMElements.form.$formLogin.addEventListener('submit', login);
 
-        ReservationsManager.reservations.add(reservationData);
-    });
+    if (localStorage.getItem(DataKeys.name)) {
+        DOMElements.$userName.innerText = localStorage.getItem(DataKeys.name);
+    }
 };

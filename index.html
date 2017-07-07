@@ -5,6 +5,7 @@
     <title>Range Scheduler</title>
     <link rel="stylesheet" href="css/libs/bootstrap.css">
     <link rel="stylesheet" href="dist/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
@@ -23,31 +24,44 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Navigation <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle">
+                            <i class="fa fa-database" aria-hidden="true"></i>
+                            Exemplary Data <span class="caret"></span>
+                        </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
+                            <li>
+                                <a href="#" id="exemplary-data-button-install">
+                                    <span class="text-success"><i class="fa fa-refresh" aria-hidden="true"></i> | Reinstall</span>
+                                </a>
+                            </li>
                             <li class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">One more separated link</a></li>
+                            <li>
+                                <a href="#" id="exemplary-data-button-clear" class="text-danger">
+                                    <span class="text-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> | Clear</span>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
+
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <span class="navbar-brand" href="#">Exemplary Data</span>
-                    </li>
-                    <li>
-                        <a href="#" id="exemplary-data-button-install">
-                            <span class="text-success">Reinstall</span>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">
+                            <i class="fa fa-user-o" aria-hidden="true"></i>
+                            Hello, <span id="user-name" class="text-success">User</span> <span class="caret"></span>
                         </a>
-                    </li>
-                    <li>
-                        <a href="#" id="exemplary-data-button-clear" class="text-danger">
-                            <span class="text-danger">Clear</span>
-                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i> | Your Reservations</a></li>
+                            <li><a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> | Leave Feedback</a></li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">
+                                    <span class="text-danger">
+                                        <i class="fa fa-key" aria-hidden="true"></i> | Logout
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>
@@ -58,6 +72,29 @@
         <div class="row">
             <div class="col-xs-4 range-container">
                 <div id="ranges-container"></div>
+
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Login</h3>
+                    </div>
+                    <div class="panel-body form-login-container">
+                        <form id="form-login" class="form-horizontal">
+                            <fieldset>
+                                <div class="form-group">
+                                    <label for="form-login-name" class="col-xs-3 control-label">Your Name</label>
+                                    <div class="col-xs-9">
+                                        <input type="text" class="form-control" id="form-login-name" placeholder="Your Name">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-lg-9 col-lg-offset-3">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
             </div>
             <div class="col-xs-8 range-container">
                 <div class="pagination-container text-center">

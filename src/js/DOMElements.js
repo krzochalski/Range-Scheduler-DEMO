@@ -1,13 +1,7 @@
 export default {
     form: {
-        $form: document.getElementById('form'),
-        $inputName: document.getElementById('form-name'),
-        $inputEmail: document.getElementById('form-email'),
-        $inputTelephone: document.getElementById('form-telephone'),
-        $inputDate: document.getElementById('form-date'),
-        $inputStart: document.getElementById('form-start'),
-        $inputStop: document.getElementById('form-stop'),
-        $formElement: document.querySelectorAll('.reservation-form .form-control')
+        $formLogin: document.getElementById('form-login'),
+        $formLoginNameInput: document.getElementById('form-name'),
     },
     $exemplaryDataButtonInstall: document.getElementById('exemplary-data-button-install'),
     $exemplaryDataButtonClear: document.getElementById('exemplary-data-button-clear'),
@@ -16,5 +10,6 @@ export default {
     $rangesContainer: document.getElementById('ranges-container'),
     $lanesContainer: document.getElementsByClassName('lanes'),
     $lane: document.getElementsByClassName('lane'),
-    $rangesTimeline: document.getElementById('ranges-timeline')
+    $rangesTimeline: document.getElementById('ranges-timeline'),
+    $userName: document.getElementById('user-name')
 };
