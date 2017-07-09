@@ -1,93 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <title>Range Scheduler</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/libs/bootstrap.css">
     <link rel="stylesheet" href="dist/styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+    <div class="layout">
+        <div class="sidebar panel bg-primary">
+            <div class="sidebar-heading">
+                <h4 class="header">Range Scheduler</h4>
+                <button type="button" class="navbar-toggle" style="display: inline-block">
                     <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                    <span class="icon-bar bg-primary"></span>
+                    <span class="icon-bar bg-primary"></span>
+                    <span class="icon-bar bg-primary"></span>
                 </button>
-                <a class="navbar-brand" href="#">Range Scheduler</a>
             </div>
 
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle">
-                            <i class="fa fa-database" aria-hidden="true"></i>
-                            Exemplary Data <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li>
-                                <a href="#" id="exemplary-data-button-install">
-                                    <span class="text-success"><i class="fa fa-refresh" aria-hidden="true"></i> | Reinstall</span>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="#" id="exemplary-data-button-clear" class="text-danger">
-                                    <span class="text-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> | Clear</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+            <hr>
 
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle">
-                            <i class="fa fa-user-o" aria-hidden="true"></i>
-                            Hello, <span id="user-name" class="text-success">User</span> <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i> | Your Reservations</a></li>
-                            <li><a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> | Leave Feedback</a></li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="#">
-                                    <span class="text-danger">
-                                        <i class="fa fa-key" aria-hidden="true"></i> | Logout
-                                    </span>
-                                </a>
-                            </li>
-                        </ul>
+            <nav class="sidebar-nav-group">
+                <h5 class="header">
+                    Hello, <span id="user-name" class="text-success">User</span>
+                </h5>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <a href="#"><i class="fa fa-calendar" aria-hidden="true"></i> Your Reservations</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i>  Leave Feedback</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#"><span class="text-danger"><i class="fa fa-key" aria-hidden="true"></i>  Logout</span></a>
                     </li>
                 </ul>
-            </div>
+            </nav>
+
+            <nav class="sidebar-nav-group">
+                <h5 class="header">Exemplary Data</h5>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <a href="#" id="exemplary-data-button-install">
+                            <span class="text-success"><i class="fa fa-refresh" aria-hidden="true"></i>  Reinstall</span>
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#" id="exemplary-data-button-clear" class="text-danger">
+                            <span class="text-danger"><i class="fa fa-trash-o" aria-hidden="true"></i>  Clear</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
-    </nav>
+        <div class="content">
+            <section class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-4 range-container">
+                        <div id="ranges-container"></div>
 
-    <section class="container-fluid">
-        <div class="row">
-            <div class="col-xs-4 range-container">
-                <div id="ranges-container"></div>
-
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Login</h3>
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Login</h3>
+                            </div>
+                            <div class="panel-body form-login-container">
+                                <form id="form-login" class="form-horizontal">
+                                    <fieldset>
+                                        <div class="form-group">
+                                            <label for="form-login-name" class="col-xs-3 control-label">Your Name</label>
+                                            <div class="col-xs-9">
+                                                <input type="text" class="form-control" id="form-login-name" placeholder="Your Name">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-lg-9 col-lg-offset-3">
+                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
                     </div>
-                    <div class="panel-body form-login-container">
-                        <form id="form-login" class="form-horizontal">
+                    <div class="col-xs-8 range-container">
+                        <div class="pagination-container text-center">
+                            <ul class="pagination pagination-lg">
+                                <li><a href="#">Yesterday</a></li>
+                                <li class="active"><a href="#">Today</a></li>
+                                <li><a href="#">Tomorrow</a></li>
+                            </ul>
+                        </div>
+                        <div id="ranges-timeline" class="list-group timeline"></div>
+                    </div>
+                    <div class="col-xs-4" hidden>
+                        <form id="form" class="form-horizontal reservation-form">
                             <fieldset>
+                                <legend>Make a reservation</legend>
                                 <div class="form-group">
-                                    <label for="form-login-name" class="col-xs-3 control-label">Your Name</label>
-                                    <div class="col-xs-9">
-                                        <input type="text" class="form-control" id="form-login-name" placeholder="Your Name">
+                                    <label for="form-name" class="col-lg-2 control-label">Full Name</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" class="form-control" id="form-name" placeholder="Full Name">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <div class="col-lg-9 col-lg-offset-3">
+                                    <label for="form-email" class="col-lg-2 control-label">Email</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" class="form-control" id="form-email" placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="form-telephone" class="col-lg-2 control-label">Telephone</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" class="form-control" id="form-telephone" placeholder="Telephone">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="form-date" class="col-lg-2 control-label">Date</label>
+                                    <div class="col-lg-10">
+                                        <input type="date" id="form-date" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="form-start" class="col-lg-2 control-label">From</label>
+                                    <div class="col-lg-10">
+                                        <input type="time" id="form-start" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="form-stop" class="col-lg-2 control-label">To</label>
+                                    <div class="col-lg-10">
+                                        <input type="time" id="form-stop" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-lg-10 col-lg-offset-2">
+                                        <button type="reset" class="btn btn-default">Cancel</button>
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                     </div>
                                 </div>
@@ -95,74 +146,11 @@
                         </form>
                     </div>
                 </div>
-            </div>
-            <div class="col-xs-8 range-container">
-                <div class="pagination-container text-center">
-                    <ul class="pagination pagination-lg">
-                        <li><a href="#">Yesterday</a></li>
-                        <li class="active"><a href="#">Today</a></li>
-                        <li><a href="#">Tomorrow</a></li>
-                    </ul>
-                </div>
-                <div id="ranges-timeline" class="list-group timeline"></div>
-            </div>
-            <div class="col-xs-4" hidden>
-                <form id="form" class="form-horizontal reservation-form">
-                    <fieldset>
-                        <legend>Make a reservation</legend>
-                        <div class="form-group">
-                            <label for="form-name" class="col-lg-2 control-label">Full Name</label>
-                            <div class="col-lg-10">
-                                <input type="text" class="form-control" id="form-name" placeholder="Full Name">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="form-email" class="col-lg-2 control-label">Email</label>
-                            <div class="col-lg-10">
-                                <input type="text" class="form-control" id="form-email" placeholder="Email">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="form-telephone" class="col-lg-2 control-label">Telephone</label>
-                            <div class="col-lg-10">
-                                <input type="text" class="form-control" id="form-telephone" placeholder="Telephone">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="form-date" class="col-lg-2 control-label">Date</label>
-                            <div class="col-lg-10">
-                             <input type="date" id="form-date" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="form-start" class="col-lg-2 control-label">From</label>
-                            <div class="col-lg-10">
-                                <input type="time" id="form-start" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="form-stop" class="col-lg-2 control-label">To</label>
-                            <div class="col-lg-10">
-                                <input type="time" id="form-stop" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-lg-10 col-lg-offset-2">
-                                <button type="reset" class="btn btn-default">Cancel</button>
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            </div>
-                        </div>
-                    </fieldset>
-                </form>
-            </div>
+            </section>
         </div>
-    </section>
+    </div>
 
-    <section class="container-fluid">
-        <div class="row">
-            <div class="col-xs-12" id="table-container"></div>
-        </div>
-    </section>
+
 
     <script src="dist/app.js"></script>
 </body>

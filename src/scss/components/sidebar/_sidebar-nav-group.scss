@@ -1,0 +1,21 @@
+.sidebar-nav-group {
+    padding-top: 10px;
+
+    .header {
+        padding: 15px;
+    }
+
+    .list-group {
+        background-color: white;
+
+        .list-group-item {
+            border-radius: 0;
+            border-right: 0;
+            border-left: 0;
+        }
+
+        .fa {
+            min-width: 15px;
+        }
+    }
+}
