@@ -2,7 +2,7 @@ import LocalStorageManager from './LocalStorageManager';
 import DataKeys from './DataKeys';
 import progressBarTemplate from './templates/progressBar.template';
 import alertTemplate from  './templates/alert.template'
-import dataManager from './data/manager.data';
+import dataManager from './data/manager';
 
 export default {
     ranges: () => {

@@ -2,13 +2,13 @@ const fs = require("fs");
 const browserify = require("browserify");
 
 let compile = () => {
-    browserify("./src/js/app.js")
+    browserify('./app/src/js/app.js')
     .transform("babelify",
         {
             presets: ["es2015"]
         })
     .bundle()
-    .pipe(fs.createWriteStream("./dist/app.js"));
+    .pipe(fs.createWriteStream('./app/dist/app.js'));
 
     console.log('js complete');
 };

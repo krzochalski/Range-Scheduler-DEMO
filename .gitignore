@@ -3,3 +3,6 @@ node_modules
 dist/styles.css
 dist/app.js
 npm-debug.log
+tasks/stack-config.js
+.backand-credentials.json
+.awspublish-hosting.backand.io

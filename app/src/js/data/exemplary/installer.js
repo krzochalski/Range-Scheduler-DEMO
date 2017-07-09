@@ -1,4 +1,4 @@
-import dataManager from '../manager.data';
+import dataManager from '../manager';
 import dataKeys from '../../DataKeys';
 import exemplaryData from './generator.data'
 

@@ -7,4 +7,4 @@ const mainDirectory = __dirname.replace('/tasks', '');
 connect().use(serveStatic(mainDirectory)).listen(8080, function(){
     console.log('Server running on 8080...');
 });
-opn('http://localhost:8080');
+opn('http://localhost:8080/app');

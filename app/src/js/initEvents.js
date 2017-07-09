@@ -39,8 +39,6 @@ let displayReservations = e => {
 let toggleSidebar = e => {
     e.preventDefault();
 
-    console.log(document.getElementById('layout').classList.contains('sidebar-opened'));
-
     if (!document.getElementById('layout').classList.contains('sidebar-opened')) {
         document.getElementById('layout').classList.add('sidebar-opened');
     } else {
@@ -67,7 +65,10 @@ export default function () {
     for (let i = 0; i < DOMElements.$lane.length; i++) {
         DOMElements.$lane[i].addEventListener('click', displayReservations);
     }
-    DOMElements.$lane[0].click();
+
+    if (localStorage.getItem(DataKeys.ranges)) {
+        DOMElements.$lane[0].click();
+    }
 
     // DOMElements.form.$formLogin.addEventListener('submit', login);
 
