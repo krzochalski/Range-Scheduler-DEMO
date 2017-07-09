@@ -36,6 +36,18 @@ let displayReservations = e => {
     }
 };
 
+let toggleSidebar = e => {
+    e.preventDefault();
+
+    console.log(document.getElementById('layout').classList.contains('sidebar-opened'));
+
+    if (!document.getElementById('layout').classList.contains('sidebar-opened')) {
+        document.getElementById('layout').classList.add('sidebar-opened');
+    } else {
+        document.getElementById('layout').classList.remove('sidebar-opened');
+    }
+};
+
 export default function () {
     DOMElements.$exemplaryDataButtonInstall.addEventListener('click', (event) => {
         event.preventDefault();
@@ -57,9 +69,11 @@ export default function () {
     }
     DOMElements.$lane[0].click();
 
-    DOMElements.form.$formLogin.addEventListener('submit', login);
+    // DOMElements.form.$formLogin.addEventListener('submit', login);
 
     if (localStorage.getItem(DataKeys.name)) {
         DOMElements.$userName.innerText = localStorage.getItem(DataKeys.name);
     }
+
+    document.getElementById('navbar-toggle-button').addEventListener('click', toggleSidebar);
 };

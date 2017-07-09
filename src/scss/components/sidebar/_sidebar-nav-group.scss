@@ -1,12 +1,25 @@
 .sidebar-nav-group {
     padding-top: 10px;
 
+    &:first-child {
+        padding-top: 0;
+    }
+
     .header {
         padding: 15px;
+        width: $sidebar-width-opened;
+        transition: opacity $sidebar-transition-time;
+
+        &-label {
+            opacity: 0;
+            transition: opacity $sidebar-transition-time;
+        }
     }
 
     .list-group {
         background-color: white;
+        opacity: 0;
+        transition: opacity $sidebar-transition-time;
 
         .list-group-item {
             border-radius: 0;
@@ -16,6 +29,18 @@
 
         .fa {
             min-width: 15px;
+        }
+    }
+
+    .sidebar-opened & {
+        .header {
+            &-label {
+                opacity: 1;
+            }
+        }
+
+        .list-group {
+            opacity: 1;
         }
     }
 }

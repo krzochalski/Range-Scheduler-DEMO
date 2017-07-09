@@ -1,39 +1,63 @@
 .layout {
-    .sidebar,
-    .content {
+    overflow-x: hidden;
+}
+
+.sidebar {
+    position: fixed;
+    width: 54px;
+    overflow-x: hidden;
+    height: 100%;
+    z-index: 5;
+    transition: width $sidebar-transition-time;
+
+    hr {
+        margin: 0;
+    }
+
+    .header {
         position: relative;
-        float: left;
-        height: 100vh;
+        margin: 0;
     }
 
+    .navbar-toggle {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        margin: 0;
+        padding-right: 15px;
+        padding-left: 15px;
+        z-index: 10;
+        transition: left $sidebar-transition-time, right $sidebar-transition-time;
+    }
+
+    .sidebar-nav-group {
+        width: 300px;
+    }
+}
+
+.content {
+    position: relative;
+    width: 100%;
+    padding-left: $sidebar-width-closed;
+    transition: padding-left $sidebar-transition-time;
+}
+
+.sidebar-opened {
     .sidebar {
-        width: 80%;
+        width: $sidebar-width-opened;
 
-        &-heading {
-            position: relative;
-            padding: 15px;
-        }
-
-        hr {
-            margin: 0;
-        }
-
-        .header {
-            margin: 0;
-        }
-
-        .navbar-toggle {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            right: 0;
-            margin: 0;
-            padding-right: 15px;
+        .sidebar-nav-group {
+            width: 300px;
         }
     }
 
     .content {
-        width: 20%;
+        padding-left: $sidebar-width-opened;
+    }
 
+    .navbar-toggle {
+        right: 0;
+        left: auto;
     }
 }

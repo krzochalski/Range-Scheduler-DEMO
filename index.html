@@ -10,23 +10,23 @@
 </head>
 <body>
 
-    <div class="layout">
-        <div class="sidebar panel bg-primary">
-            <div class="sidebar-heading">
-                <h4 class="header">Range Scheduler</h4>
-                <button type="button" class="navbar-toggle" style="display: inline-block">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar bg-primary"></span>
-                    <span class="icon-bar bg-primary"></span>
-                    <span class="icon-bar bg-primary"></span>
-                </button>
-            </div>
+    <div class="overlay">
 
-            <hr>
+    </div>
 
+    <div id="layout" class="layout">
+
+        <aside class="sidebar panel bg-primary">
             <nav class="sidebar-nav-group">
                 <h5 class="header">
-                    Hello, <span id="user-name" class="text-success">User</span>
+                    <span class="header-label">
+                        Hello, <span id="user-name" class="text-success">User</span>
+                    </span>
+                    <button id="navbar-toggle-button" class="navbar-toggle" type="button" style="display: inline-block">
+                        <span class="icon-bar bg-primary"></span>
+                        <span class="icon-bar bg-primary"></span>
+                        <span class="icon-bar bg-primary"></span>
+                    </button>
                 </h5>
                 <ul class="list-group">
                     <li class="list-group-item">
@@ -42,7 +42,7 @@
             </nav>
 
             <nav class="sidebar-nav-group">
-                <h5 class="header">Exemplary Data</h5>
+                <h5 class="header"><span class="header-label">Exemplary Data</span></h5>
                 <ul class="list-group">
                     <li class="list-group-item">
                         <a href="#" id="exemplary-data-button-install">
@@ -56,37 +56,25 @@
                     </li>
                 </ul>
             </nav>
-        </div>
-        <div class="content">
-            <section class="container-fluid">
-                <div class="row">
-                    <div class="col-xs-4 range-container">
-                        <div id="ranges-container"></div>
+        </aside>
 
-                        <div class="panel panel-info">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Login</h3>
-                            </div>
-                            <div class="panel-body form-login-container">
-                                <form id="form-login" class="form-horizontal">
-                                    <fieldset>
-                                        <div class="form-group">
-                                            <label for="form-login-name" class="col-xs-3 control-label">Your Name</label>
-                                            <div class="col-xs-9">
-                                                <input type="text" class="form-control" id="form-login-name" placeholder="Your Name">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-lg-9 col-lg-offset-3">
-                                                <button type="submit" class="btn btn-primary">Submit</button>
-                                            </div>
-                                        </div>
-                                    </fieldset>
-                                </form>
-                            </div>
+        <main class="content">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="col-xs-12">
+                        <div class="jumbotron">
+                            <h1>Range Scheduler</h1>
+                            <p>Range time scheduling app.</p>
+                            <p><a class="btn btn-primary btn-lg">Learn more</a></p>
                         </div>
                     </div>
-                    <div class="col-xs-8 range-container">
+
+                    <div class="col-xs-12 range-container">
+                        <div id="ranges-container"></div>
+                    </div>
+
+                    <div class="col-xs-12 range-container">
                         <div class="pagination-container text-center">
                             <ul class="pagination pagination-lg">
                                 <li><a href="#">Yesterday</a></li>
@@ -146,8 +134,8 @@
                         </form>
                     </div>
                 </div>
-            </section>
-        </div>
+            </div>
+        </main>
     </div>
 
 
