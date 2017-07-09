@@ -1,3 +1,7 @@
+.scrolling-disabled {
+    overflow: hidden;
+}
+
 .layout {
     overflow-x: hidden;
 }
@@ -5,7 +9,7 @@
 .sidebar {
     position: fixed;
     width: 54px;
-    overflow-x: hidden;
+    overflow: hidden;
     height: 100%;
     z-index: 5;
     transition: width $sidebar-transition-time;
@@ -44,8 +48,11 @@
 }
 
 .sidebar-opened {
+    overflow: hidden;
+
     .sidebar {
         width: $sidebar-width-opened;
+        overflow-y: auto;
 
         .sidebar-nav-group {
             width: 300px;
@@ -54,6 +61,7 @@
 
     .content {
         padding-left: $sidebar-width-opened;
+        overflow: hidden;
     }
 
     .navbar-toggle {

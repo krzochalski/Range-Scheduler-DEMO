@@ -41,8 +41,10 @@ let toggleSidebar = e => {
 
     if (!document.getElementById('layout').classList.contains('sidebar-opened')) {
         document.getElementById('layout').classList.add('sidebar-opened');
+        document.body.classList.add('scrolling-disabled');
     } else {
         document.getElementById('layout').classList.remove('sidebar-opened');
+        document.body.classList.remove('scrolling-disabled');
     }
 };
 
