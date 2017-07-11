@@ -636,6 +636,14 @@ exports.default = function () {
     });
 
     showSheduleContainer();
+
+    setTimeout(function () {
+        Promise.resolve(setTimeout(function () {
+            return disableLoadingScreen();
+        }, 700)).then(setTimeout(function () {
+            return disableOverlay();
+        }, 1300));
+    }, 1200);
 };
 
 var _Render = require('./Render');
@@ -810,6 +818,18 @@ function highlightButton(button) {
             document.getElementById('go-back-button').classList.add('btn-highlighted');
             document.getElementById('go-next-button').classList.remove('btn-highlighted');
     }
+}
+
+function disableOverlay() {
+    document.getElementById('overlay').classList.add('is-hidden');
+}
+
+function disableLoadingScreen() {
+    var $loader = document.getElementById('loader');
+    $loader.style.top = '-' + window.innerWidth * 1.5 + 'px';
+    setTimeout(function () {
+        return delete $loader.parentNode.removeChild($loader);
+    }, 1500);
 }
 
 var toggleSidebar = function toggleSidebar(e) {

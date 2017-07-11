@@ -94,6 +94,16 @@ function highlightButton(button) {
     }
 }
 
+function disableOverlay() {
+    document.getElementById('overlay').classList.add('is-hidden');
+}
+
+function disableLoadingScreen() {
+    let $loader = document.getElementById('loader');
+    $loader.style.top = `-${window.innerWidth * 1.5}px`;
+    setTimeout(() => delete $loader.parentNode.removeChild($loader), 1500);
+}
+
 let toggleSidebar = e => {
     e.preventDefault();
 
@@ -150,4 +160,10 @@ export default function () {
     document.getElementById('go-next-button').addEventListener('click', () => showSheduleContainer('form'));
 
     showSheduleContainer();
+
+    setTimeout(() => {
+        Promise
+            .resolve(setTimeout(() => disableLoadingScreen(), 700))
+            .then(setTimeout(() => disableOverlay(), 1300));
+    }, 1200);
 };
