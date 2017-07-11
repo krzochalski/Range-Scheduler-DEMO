@@ -774,7 +774,7 @@ var displayReservations = function displayReservations(e) {
 };
 
 function showSheduleContainer(container) {
-    var sidebarWidth = 54;
+    var sidebarWidth = 0;
 
     switch (container) {
         case 'ranges':
@@ -787,7 +787,6 @@ function showSheduleContainer(container) {
             document.getElementById('content-inner').style.left = document.getElementsByClassName('scheduler-container')[0].offsetWidth * -1 * 2 + sidebarWidth + 'px';
             break;
         default:
-            console.log('default');
             document.getElementById('content-inner').style.left = sidebarWidth + 'px';
     }
 }

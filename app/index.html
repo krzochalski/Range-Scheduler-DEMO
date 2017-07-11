@@ -75,64 +75,66 @@
         </aside>
 
         <main class="content">
-            <div id="content-inner" class="content-inner container-fluid">
-                <div class="row">
+            <div class="content-outer">
+                <div id="content-inner" class="content-inner container-fluid">
+                    <div class="row">
 
-                    <div id="navigation-buttons-container" class="navigation-buttons-container panel text-center">
-                        <button id="go-back-button" class="btn btn-danger" type="button">Go back</button>
-                        <button id="go-next-button" class="btn btn-success" type="button">Go next</button>
-                    </div>
+                        <div id="navigation-buttons-container" class="navigation-buttons-container panel text-center">
+                            <button id="go-back-button" class="btn btn-danger" type="button">Go back</button>
+                            <button id="go-next-button" class="btn btn-success" type="button">Go next</button>
+                        </div>
 
-                    <div id="go-next-container" class="go-next-container panel text-center">
-                    </div>
+                        <div id="go-next-container" class="go-next-container panel text-center">
+                        </div>
 
-                    <div id="scheduler-container-ranges" class="col-xs-12 scheduler-container">
-                        <h5>Choose your lane</h5>
-                        <div id="ranges-container"></div>
-                    </div>
+                        <div id="scheduler-container-ranges" class="col-xs-12 scheduler-container">
+                            <h5>Choose your lane</h5>
+                            <div id="ranges-container"></div>
+                        </div>
 
-                    <div class="col-xs-12 scheduler-container">
-                        <h5>Choose when</h5>
-                        <!--<div class="pagination-container text-center">-->
+                        <div class="col-xs-12 scheduler-container">
+                            <h5>Choose when</h5>
+                            <!--<div class="pagination-container text-center">-->
                             <!--<ul class="pagination pagination-lg">-->
-                                <!--<li><a href="#">Yesterday</a></li>-->
-                                <!--<li class="active"><a href="#">Today</a></li>-->
-                                <!--<li><a href="#">Tomorrow</a></li>-->
+                            <!--<li><a href="#">Yesterday</a></li>-->
+                            <!--<li class="active"><a href="#">Today</a></li>-->
+                            <!--<li><a href="#">Tomorrow</a></li>-->
                             <!--</ul>-->
-                        <!--</div>-->
-                        <div id="ranges-timeline" class="list-group timeline"></div>
-                    </div>
+                            <!--</div>-->
+                            <div id="ranges-timeline" class="list-group timeline"></div>
+                        </div>
 
-                    <div class="col-xs-12 scheduler-container">
-                        <form id="form" class="form-horizontal reservation-form">
-                            <fieldset>
-                                <legend>Make a reservation</legend>
-                                <div class="form-group">
-                                    <label for="form-name" class="col-lg-2 control-label">Full Name</label>
-                                    <div class="col-lg-10">
-                                        <input type="text" class="form-control" id="form-name" placeholder="Full Name">
+                        <div class="col-xs-12 scheduler-container">
+                            <form id="form" class="form-horizontal reservation-form">
+                                <fieldset>
+                                    <legend>Make a reservation</legend>
+                                    <div class="form-group">
+                                        <label for="form-name" class="col-lg-2 control-label">Full Name</label>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control" id="form-name" placeholder="Full Name">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="form-email" class="col-lg-2 control-label">Email</label>
-                                    <div class="col-lg-10">
-                                        <input type="text" class="form-control" id="form-email" placeholder="Email">
+                                    <div class="form-group">
+                                        <label for="form-email" class="col-lg-2 control-label">Email</label>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control" id="form-email" placeholder="Email">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="form-telephone" class="col-lg-2 control-label">Telephone</label>
-                                    <div class="col-lg-10">
-                                        <input type="text" class="form-control" id="form-telephone" placeholder="Telephone">
+                                    <div class="form-group">
+                                        <label for="form-telephone" class="col-lg-2 control-label">Telephone</label>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control" id="form-telephone" placeholder="Telephone">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-lg-10 col-lg-offset-2">
-                                        <button type="reset" class="btn btn-default">Cancel</button>
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    <div class="form-group">
+                                        <div class="col-lg-10 col-lg-offset-2">
+                                            <button type="reset" class="btn btn-default">Cancel</button>
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </div>
                                     </div>
-                                </div>
-                            </fieldset>
-                        </form>
+                                </fieldset>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

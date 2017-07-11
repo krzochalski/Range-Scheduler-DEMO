@@ -50,14 +50,14 @@
     transition: padding-left $sidebar-transition-time;
     overflow-x: hidden;
 
+    &-outer {
+        position: relative;
+    }
+
     &-inner {
         position: absolute;
-        left: $sidebar-width-closed;
+        left: 0;
         transition: left 0.35s ease;
-
-        &.test {
-            left: -302px;
-        }
     }
 
     .navigation-buttons-container {

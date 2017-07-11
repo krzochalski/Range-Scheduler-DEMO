@@ -56,7 +56,7 @@ let displayReservations = e => {
 };
 
 function showSheduleContainer(container) {
-    const sidebarWidth = 54;
+    const sidebarWidth = 0;
 
     switch (container) {
         case 'ranges':
@@ -69,7 +69,6 @@ function showSheduleContainer(container) {
             document.getElementById('content-inner').style.left = `${document.getElementsByClassName('scheduler-container')[0].offsetWidth * -1 * 2 + sidebarWidth}px`;
             break;
         default:
-            console.log('default');
             document.getElementById('content-inner').style.left = `${sidebarWidth}px`;
     }
 }
