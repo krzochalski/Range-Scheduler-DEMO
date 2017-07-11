@@ -5,34 +5,12 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 exports.default = {
-    form: {
-        $formLogin: document.getElementById('form-login'),
-        $formLoginNameInput: document.getElementById('form-name')
-    },
-    $exemplaryDataButtonInstall: document.getElementById('exemplary-data-button-install'),
-    $exemplaryDataButtonClear: document.getElementById('exemplary-data-button-clear'),
-    $tableContainer: document.getElementById('table-container'),
-    $tableReservations: document.getElementById('table-reservations'),
-    $rangesContainer: document.getElementById('ranges-container'),
-    $lanesContainer: document.getElementsByClassName('lanes'),
-    $lane: document.getElementsByClassName('lane'),
-    $rangesTimeline: document.getElementById('ranges-timeline'),
-    $userName: document.getElementById('user-name')
-};
-
-},{}],2:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = {
     ranges: 'rangesData',
     day: 'selectedDay',
     name: 'name'
 };
 
-},{}],3:[function(require,module,exports){
+},{}],2:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -97,7 +75,7 @@ function _default(key) {
 }
 exports.default = _default;
 
-},{}],4:[function(require,module,exports){
+},{}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -183,7 +161,7 @@ exports.default = {
     }
 };
 
-},{"./DataKeys":2,"./LocalStorageManager":3,"./data/manager":8,"./templates/alert.template":11,"./templates/progressBar.template":12}],5:[function(require,module,exports){
+},{"./DataKeys":1,"./LocalStorageManager":2,"./data/manager":7,"./templates/alert.template":10,"./templates/progressBar.template":11}],4:[function(require,module,exports){
 'use strict';
 
 var _initEvents = require('./initEvents');
@@ -202,7 +180,7 @@ document.addEventListener('DOMContentLoaded', function () {
     App.init();
 }, false);
 
-},{"./initEvents":9}],6:[function(require,module,exports){
+},{"./initEvents":8}],5:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -530,7 +508,7 @@ var exemplaryReservation = {
     }
 };
 
-},{"../../utils/date.util":13}],7:[function(require,module,exports){
+},{"../../utils/date.util":12}],6:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -601,7 +579,7 @@ var ExemplaryDataInstaller = function () {
 
 exports.default = new ExemplaryDataInstaller();
 
-},{"../../DataKeys":2,"../manager":8,"./generator.data":6}],8:[function(require,module,exports){
+},{"../../DataKeys":1,"../manager":7,"./generator.data":5}],7:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -613,7 +591,7 @@ exports.default = {
     }
 };
 
-},{}],9:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -621,41 +599,44 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 exports.default = function () {
-    _DOMElements2.default.$exemplaryDataButtonInstall.addEventListener('click', function (event) {
+    DOMElements.$exemplaryDataButtonInstall.addEventListener('click', function (event) {
         event.preventDefault();
         _installer2.default.reinstall();
         location.reload();
     });
 
-    _DOMElements2.default.$exemplaryDataButtonClear.addEventListener('click', function (event) {
+    DOMElements.$exemplaryDataButtonClear.addEventListener('click', function (event) {
         event.preventDefault();
         _installer2.default.clear();
         location.reload();
     });
 
-    _DOMElements2.default.$rangesContainer.innerHTML = _Render2.default.ranges();
-    _DOMElements2.default.$rangesTimeline.innerHTML = _Render2.default.timeline('09:00', '20:00');
+    DOMElements.$rangesContainer.innerHTML = _Render2.default.ranges();
+    DOMElements.$rangesTimeline.innerHTML = _Render2.default.timeline('09:00', '20:00');
 
-    for (var i = 0; i < _DOMElements2.default.$lane.length; i++) {
-        _DOMElements2.default.$lane[i].addEventListener('click', displayReservations);
-    }
-
-    if (localStorage.getItem(_DataKeys2.default.ranges)) {
-        _DOMElements2.default.$lane[0].click();
+    for (var i = 0; i < DOMElements.$lane.length; i++) {
+        DOMElements.$lane[i].addEventListener('click', displayReservations);
     }
 
     // DOMElements.form.$formLogin.addEventListener('submit', login);
 
     if (localStorage.getItem(_DataKeys2.default.name)) {
-        _DOMElements2.default.$userName.innerText = localStorage.getItem(_DataKeys2.default.name);
+        DOMElements.$userName.innerText = localStorage.getItem(_DataKeys2.default.name);
     }
 
     document.getElementById('navbar-toggle-button').addEventListener('click', toggleSidebar);
+
+    setupAppInterface();
+
+    document.getElementById('go-back-button').addEventListener('click', function () {
+        return showSheduleContainer('ranges');
+    });
+    document.getElementById('go-next-button').addEventListener('click', function () {
+        return showSheduleContainer('form');
+    });
+
+    showSheduleContainer();
 };
-
-var _DOMElements = require('./DOMElements');
-
-var _DOMElements2 = _interopRequireDefault(_DOMElements);
 
 var _Render = require('./Render');
 
@@ -680,6 +661,22 @@ var _login = require('./login');
 var _login2 = _interopRequireDefault(_login);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var DOMElements = {
+    form: {
+        $formLogin: document.getElementById('form-login'),
+        $formLoginNameInput: document.getElementById('form-name')
+    },
+    $exemplaryDataButtonInstall: document.getElementById('exemplary-data-button-install'),
+    $exemplaryDataButtonClear: document.getElementById('exemplary-data-button-clear'),
+    $tableContainer: document.getElementById('table-container'),
+    $tableReservations: document.getElementById('table-reservations'),
+    $rangesContainer: document.getElementById('ranges-container'),
+    $lanesContainer: document.getElementsByClassName('lanes'),
+    $lane: document.getElementsByClassName('lane'),
+    $rangesTimeline: document.getElementById('ranges-timeline'),
+    $userName: document.getElementById('user-name')
+};
 
 var displayReservations = function displayReservations(e) {
     var reservations = (0, _LocalStorageManager2.default)().collection(_DataKeys2.default.ranges).getAll().find(function (range) {
@@ -770,7 +767,51 @@ var displayReservations = function displayReservations(e) {
             }
         }
     }
+
+    showSheduleContainer('timeline');
+    showButtonsContainer(true);
+    highlightButton('back');
 };
+
+function showSheduleContainer(container) {
+    var sidebarWidth = 54;
+
+    switch (container) {
+        case 'ranges':
+            document.getElementById('content-inner').style.left = sidebarWidth + 'px';
+            break;
+        case 'timeline':
+            document.getElementById('content-inner').style.left = document.getElementsByClassName('scheduler-container')[0].offsetWidth * -1 + sidebarWidth + 'px';
+            break;
+        case 'form':
+            document.getElementById('content-inner').style.left = document.getElementsByClassName('scheduler-container')[0].offsetWidth * -1 * 2 + sidebarWidth + 'px';
+            break;
+        default:
+            console.log('default');
+            document.getElementById('content-inner').style.left = sidebarWidth + 'px';
+    }
+}
+
+function showButtonsContainer(condition) {
+    var $buttonsContainer = document.getElementById('navigation-buttons-container');
+    return condition ? $buttonsContainer.classList.add('active') : $buttonsContainer.classList.remove('active');
+}
+
+function highlightButton(button) {
+    switch (button) {
+        case 'back':
+            document.getElementById('go-back-button').classList.add('btn-highlighted');
+            document.getElementById('go-next-button').classList.remove('btn-highlighted');
+            break;
+        case 'next':
+            document.getElementById('go-back-button').classList.remove('btn-highlighted');
+            document.getElementById('go-next-button').classList.add('btn-highlighted');
+            break;
+        default:
+            document.getElementById('go-back-button').classList.add('btn-highlighted');
+            document.getElementById('go-next-button').classList.remove('btn-highlighted');
+    }
+}
 
 var toggleSidebar = function toggleSidebar(e) {
     e.preventDefault();
@@ -784,9 +825,40 @@ var toggleSidebar = function toggleSidebar(e) {
     }
 };
 
+var setupAppInterface = function setupAppInterface() {
+    var contentWidth = document.getElementById('content-inner').offsetWidth;
+    var $schedulerContainers = document.getElementsByClassName('scheduler-container');
+
+    var _iteratorNormalCompletion4 = true;
+    var _didIteratorError4 = false;
+    var _iteratorError4 = undefined;
+
+    try {
+        for (var _iterator4 = $schedulerContainers[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+            var $schedulerContainer = _step4.value;
+
+            $schedulerContainer.style.width = contentWidth + 'px';
+            document.getElementById('content-inner').style.width = contentWidth * $schedulerContainers.length + 'px';
+        }
+    } catch (err) {
+        _didIteratorError4 = true;
+        _iteratorError4 = err;
+    } finally {
+        try {
+            if (!_iteratorNormalCompletion4 && _iterator4.return) {
+                _iterator4.return();
+            }
+        } finally {
+            if (_didIteratorError4) {
+                throw _iteratorError4;
+            }
+        }
+    }
+};
+
 ;
 
-},{"./DOMElements":1,"./DataKeys":2,"./LocalStorageManager":3,"./Render":4,"./data/exemplary/installer":7,"./login":10,"./utils/date.util":13}],10:[function(require,module,exports){
+},{"./DataKeys":1,"./LocalStorageManager":2,"./Render":3,"./data/exemplary/installer":6,"./login":9,"./utils/date.util":12}],9:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -806,7 +878,7 @@ var _DataKeys2 = _interopRequireDefault(_DataKeys);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-},{"./DataKeys":2}],11:[function(require,module,exports){
+},{"./DataKeys":1}],10:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -819,7 +891,7 @@ exports.default = function (message, type) {
     return '\n        <div class="alert alert-' + type + '">' + message + '</div>\n    ';
 };
 
-},{}],12:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -830,7 +902,7 @@ exports.default = function (percent) {
     return "\n        <div class=\"progress\">\n            <div class=\"progress-bar\" \n                 role=\"progressbar\"\n                 aria-valuenow=\"" + percent + "\"\n                 aria-valuemin=\"0\"\n                 aria-valuemax=\"100\"\n                 style=\"width: " + percent + "%;\">\n                " + percent + "%\n            </div>\n        </div>\n    ";
 };
 
-},{}],13:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -866,4 +938,4 @@ function getDay(dayCount) {
     return getFullDate(today);
 }
 
-},{}]},{},[5]);
+},{}]},{},[4]);

@@ -75,32 +75,35 @@
         </aside>
 
         <main class="content">
-            <div class="container-fluid">
+            <div id="content-inner" class="content-inner container-fluid">
                 <div class="row">
 
-                    <div class="col-xs-12">
-                        <div class="jumbotron">
-                            <h1>Range Scheduler</h1>
-                            <p>Range time scheduling app.</p>
-                            <p><a href="https://www.patreon.com/piotrkrzoska" class="btn btn-primary btn-lg" target="_blank">Learn more</a></p>
-                        </div>
+                    <div id="navigation-buttons-container" class="navigation-buttons-container panel text-center">
+                        <button id="go-back-button" class="btn btn-danger" type="button">Go back</button>
+                        <button id="go-next-button" class="btn btn-success" type="button">Go next</button>
                     </div>
 
-                    <div class="col-xs-12 range-container">
+                    <div id="go-next-container" class="go-next-container panel text-center">
+                    </div>
+
+                    <div id="scheduler-container-ranges" class="col-xs-12 scheduler-container">
+                        <h5>Choose your lane</h5>
                         <div id="ranges-container"></div>
                     </div>
 
-                    <div class="col-xs-12 range-container">
-                        <div class="pagination-container text-center">
-                            <ul class="pagination pagination-lg">
-                                <li><a href="#">Yesterday</a></li>
-                                <li class="active"><a href="#">Today</a></li>
-                                <li><a href="#">Tomorrow</a></li>
-                            </ul>
-                        </div>
+                    <div class="col-xs-12 scheduler-container">
+                        <h5>Choose when</h5>
+                        <!--<div class="pagination-container text-center">-->
+                            <!--<ul class="pagination pagination-lg">-->
+                                <!--<li><a href="#">Yesterday</a></li>-->
+                                <!--<li class="active"><a href="#">Today</a></li>-->
+                                <!--<li><a href="#">Tomorrow</a></li>-->
+                            <!--</ul>-->
+                        <!--</div>-->
                         <div id="ranges-timeline" class="list-group timeline"></div>
                     </div>
-                    <div class="col-xs-4" hidden>
+
+                    <div class="col-xs-12 scheduler-container">
                         <form id="form" class="form-horizontal reservation-form">
                             <fieldset>
                                 <legend>Make a reservation</legend>
@@ -120,24 +123,6 @@
                                     <label for="form-telephone" class="col-lg-2 control-label">Telephone</label>
                                     <div class="col-lg-10">
                                         <input type="text" class="form-control" id="form-telephone" placeholder="Telephone">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="form-date" class="col-lg-2 control-label">Date</label>
-                                    <div class="col-lg-10">
-                                        <input type="date" id="form-date" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="form-start" class="col-lg-2 control-label">From</label>
-                                    <div class="col-lg-10">
-                                        <input type="time" id="form-start" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="form-stop" class="col-lg-2 control-label">To</label>
-                                    <div class="col-lg-10">
-                                        <input type="time" id="form-stop" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group">

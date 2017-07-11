@@ -1,10 +1,25 @@
-import DOMElements from './DOMElements';
 import Render from './Render';
 import LocalStorageManager from './LocalStorageManager';
 import DataKeys from './DataKeys';
 import exemplaryDataInstaller from './data/exemplary/installer';
 import {getDay} from './utils/date.util';
 import login from './login';
+
+let DOMElements = {
+    form: {
+        $formLogin: document.getElementById('form-login'),
+        $formLoginNameInput: document.getElementById('form-name'),
+    },
+    $exemplaryDataButtonInstall: document.getElementById('exemplary-data-button-install'),
+    $exemplaryDataButtonClear: document.getElementById('exemplary-data-button-clear'),
+    $tableContainer: document.getElementById('table-container'),
+    $tableReservations: document.getElementById('table-reservations'),
+    $rangesContainer: document.getElementById('ranges-container'),
+    $lanesContainer: document.getElementsByClassName('lanes'),
+    $lane: document.getElementsByClassName('lane'),
+    $rangesTimeline: document.getElementById('ranges-timeline'),
+    $userName: document.getElementById('user-name')
+};
 
 let displayReservations = e => {
     let reservations = LocalStorageManager()
@@ -34,7 +49,51 @@ let displayReservations = e => {
             }
         }
     }
+
+    showSheduleContainer('timeline');
+    showButtonsContainer(true);
+    highlightButton('back');
 };
+
+function showSheduleContainer(container) {
+    const sidebarWidth = 54;
+
+    switch (container) {
+        case 'ranges':
+            document.getElementById('content-inner').style.left = `${sidebarWidth}px`;
+            break;
+        case 'timeline':
+            document.getElementById('content-inner').style.left = `${document.getElementsByClassName('scheduler-container')[0].offsetWidth * -1 + sidebarWidth}px`;
+            break;
+        case 'form':
+            document.getElementById('content-inner').style.left = `${document.getElementsByClassName('scheduler-container')[0].offsetWidth * -1 * 2 + sidebarWidth}px`;
+            break;
+        default:
+            console.log('default');
+            document.getElementById('content-inner').style.left = `${sidebarWidth}px`;
+    }
+}
+
+function showButtonsContainer(condition) {
+    let $buttonsContainer = document.getElementById('navigation-buttons-container');
+    return condition ? $buttonsContainer.classList.add('active') : $buttonsContainer.classList.remove('active');
+}
+
+function highlightButton(button) {
+    switch (button) {
+        case 'back':
+            document.getElementById('go-back-button').classList.add('btn-highlighted');
+            document.getElementById('go-next-button').classList.remove('btn-highlighted');
+            break;
+        case 'next':
+            document.getElementById('go-back-button').classList.remove('btn-highlighted');
+            document.getElementById('go-next-button').classList.add('btn-highlighted');
+            break;
+        default:
+            document.getElementById('go-back-button').classList.add('btn-highlighted');
+            document.getElementById('go-next-button').classList.remove('btn-highlighted');
+    }
+}
 
 let toggleSidebar = e => {
     e.preventDefault();
@@ -45,6 +104,16 @@ let toggleSidebar = e => {
     } else {
         document.getElementById('layout').classList.remove('sidebar-opened');
         document.body.classList.remove('scrolling-disabled');
+    }
+};
+
+let setupAppInterface = () => {
+    let contentWidth = document.getElementById('content-inner').offsetWidth;
+    let $schedulerContainers = document.getElementsByClassName('scheduler-container');
+
+    for (let $schedulerContainer of $schedulerContainers) {
+        $schedulerContainer.style.width = `${contentWidth}px`;
+        document.getElementById('content-inner').style.width = `${contentWidth * $schedulerContainers.length}px`;
     }
 };
 
@@ -68,10 +137,6 @@ export default function () {
         DOMElements.$lane[i].addEventListener('click', displayReservations);
     }
 
-    if (localStorage.getItem(DataKeys.ranges)) {
-        DOMElements.$lane[0].click();
-    }
-
     // DOMElements.form.$formLogin.addEventListener('submit', login);
 
     if (localStorage.getItem(DataKeys.name)) {
@@ -79,4 +144,11 @@ export default function () {
     }
 
     document.getElementById('navbar-toggle-button').addEventListener('click', toggleSidebar);
+
+    setupAppInterface();
+
+    document.getElementById('go-back-button').addEventListener('click', () => showSheduleContainer('ranges'));
+    document.getElementById('go-next-button').addEventListener('click', () => showSheduleContainer('form'));
+
+    showSheduleContainer();
 };

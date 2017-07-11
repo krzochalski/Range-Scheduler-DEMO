@@ -40,11 +40,49 @@
     }
 }
 
+//* {transition: all 0.5s}
+
 .content {
     position: relative;
     width: 100%;
-    padding-left: $sidebar-width-closed;
+    height: 100vh;
+    padding: 15px 0 15px $sidebar-width-closed;
     transition: padding-left $sidebar-transition-time;
+    overflow-x: hidden;
+
+    &-inner {
+        position: absolute;
+        left: $sidebar-width-closed;
+        transition: left 0.35s ease;
+
+        &.test {
+            left: -302px;
+        }
+    }
+
+    .navigation-buttons-container {
+        position: fixed;
+        width: calc(100% - 54px);
+        padding: 5px 0;
+        bottom: -52px;
+        right: 0;
+        margin-bottom: 0;
+        transition: bottom 0.15s ease-in;
+        z-index: 5;
+        border-radius: 0;
+
+        &.active {
+            bottom: 0;
+        }
+
+        &.is-time-chosen {
+            bottom: 0;
+        }
+
+        .btn.btn-highlighted {
+            padding: 10px 30px;
+        }
+    }
 }
 
 .sidebar-opened {
