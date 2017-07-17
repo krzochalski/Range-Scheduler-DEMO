@@ -3,7 +3,6 @@ import LocalStorageManager from './LocalStorageManager';
 import DataKeys from './DataKeys';
 import exemplaryDataInstaller from './data/exemplary/installer';
 import {getDay} from './utils/date.util';
-import login from './login';
 
 let DOMElements = {
     form: {
@@ -33,7 +32,6 @@ let displayReservations = e => {
 
     for (let sibling of e.target.parentElement.getElementsByClassName('lane')) {sibling.classList.remove('active')}
     e.target.classList.add('active');
-
 
     for (let i = 0; i < reservations.length; i++) {
         if (reservations[i].day === getDay(localStorage.getItem(DataKeys.day))) {
@@ -165,5 +163,5 @@ export default function () {
         Promise
             .resolve(setTimeout(() => disableLoadingScreen(), 700))
             .then(setTimeout(() => disableOverlay(), 1300));
-    }, 1200);
+    }, 800);
 };

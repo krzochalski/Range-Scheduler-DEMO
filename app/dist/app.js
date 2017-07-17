@@ -90,10 +90,6 @@ var _DataKeys = require('./DataKeys');
 
 var _DataKeys2 = _interopRequireDefault(_DataKeys);
 
-var _progressBar = require('./templates/progressBar.template');
-
-var _progressBar2 = _interopRequireDefault(_progressBar);
-
 var _alert = require('./templates/alert.template');
 
 var _alert2 = _interopRequireDefault(_alert);
@@ -161,7 +157,7 @@ exports.default = {
     }
 };
 
-},{"./DataKeys":1,"./LocalStorageManager":2,"./data/manager":7,"./templates/alert.template":10,"./templates/progressBar.template":11}],4:[function(require,module,exports){
+},{"./DataKeys":1,"./LocalStorageManager":2,"./data/manager":7,"./templates/alert.template":9}],4:[function(require,module,exports){
 'use strict';
 
 var _initEvents = require('./initEvents');
@@ -508,7 +504,7 @@ var exemplaryReservation = {
     }
 };
 
-},{"../../utils/date.util":12}],6:[function(require,module,exports){
+},{"../../utils/date.util":10}],6:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -643,7 +639,7 @@ exports.default = function () {
         }, 700)).then(setTimeout(function () {
             return disableOverlay();
         }, 1300));
-    }, 1200);
+    }, 800);
 };
 
 var _Render = require('./Render');
@@ -663,10 +659,6 @@ var _installer = require('./data/exemplary/installer');
 var _installer2 = _interopRequireDefault(_installer);
 
 var _date = require('./utils/date.util');
-
-var _login = require('./login');
-
-var _login2 = _interopRequireDefault(_login);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -877,27 +869,7 @@ var setupAppInterface = function setupAppInterface() {
 
 ;
 
-},{"./DataKeys":1,"./LocalStorageManager":2,"./Render":3,"./data/exemplary/installer":6,"./login":9,"./utils/date.util":12}],9:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-exports.default = function (e) {
-    e.preventDefault();
-
-    var name = document.getElementById('form-login-name').value;
-    localStorage.setItem(_DataKeys2.default.name, name);
-};
-
-var _DataKeys = require('./DataKeys');
-
-var _DataKeys2 = _interopRequireDefault(_DataKeys);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-},{"./DataKeys":1}],10:[function(require,module,exports){
+},{"./DataKeys":1,"./LocalStorageManager":2,"./Render":3,"./data/exemplary/installer":6,"./utils/date.util":10}],9:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -910,18 +882,7 @@ exports.default = function (message, type) {
     return '\n        <div class="alert alert-' + type + '">' + message + '</div>\n    ';
 };
 
-},{}],11:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-exports.default = function (percent) {
-    return "\n        <div class=\"progress\">\n            <div class=\"progress-bar\" \n                 role=\"progressbar\"\n                 aria-valuenow=\"" + percent + "\"\n                 aria-valuemin=\"0\"\n                 aria-valuemax=\"100\"\n                 style=\"width: " + percent + "%;\">\n                " + percent + "%\n            </div>\n        </div>\n    ";
-};
-
-},{}],12:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
