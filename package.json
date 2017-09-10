@@ -1,35 +1,37 @@
 {
-    "name": "range-scheduler",
-    "version": "1.0.0",
-    "description": "Range Time Scheduling App",
-    "main": "index.html",
-    "scripts": {
-        "styles": "./node_modules/.bin/nodemon -e scss --exec \"node tasks/styles.js\"",
-        "javascripts": "./node_modules/.bin/nodemon -w ./app/src/js --exec \"node tasks/babel.js\"",
-        "livereload": "./node_modules/.bin/livereload",
-        "server": "node tasks/server.js",
-        "dev": "./node_modules/.bin/concurrently --kill-others \"npm run styles\" \"npm run javascripts\" \"npm run livereload\" \"npm run server\"",
-        "deploy": "node tasks/deploy.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/krzochalski/Range-Scheduler-DEMO.git"
-    },
-    "author": "Piotr Krzoska",
-    "license": "ISC",
-    "homepage": "https://github.com/krzochalski/Range-Scheduler-DEMO",
-    "devDependencies": {
-        "babelify": "^7.3.0",
-        "backand": "^2.3.1",
-        "backand-hosting-s3": "^1.9.0",
-        "browserify": "^14.4.0",
-        "concurrently": "^3.4.0",
-        "connect": "^3.6.2",
-        "livereload": "^0.6.2",
-        "node-sass": "^4.5.3",
-        "nodemon": "^1.11.0",
-        "opn": "^5.1.0",
-        "serve-static": "^1.12.3",
-        "shelljs": "^0.7.8"
-    }
+  "name": "range-scheduler",
+  "version": "1.0.0",
+  "description": "Range Time Scheduling App",
+  "main": "index.html",
+  "scripts": {
+    "styles": "./node_modules/.bin/nodemon -e scss --exec \"node tasks/styles.js\"",
+    "javascripts": "./node_modules/.bin/nodemon -w ./app/src/js --exec \"node tasks/babel.js\"",
+    "livereload": "./node_modules/.bin/livereload",
+    "server": "node tasks/server.js",
+    "dev": "./node_modules/.bin/concurrently --kill-others \"npm run styles\" \"npm run javascripts\" \"npm run livereload\" \"npm run server\"",
+    "deploy": "node tasks/deploy.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/krzochalski/Range-Scheduler-DEMO.git"
+  },
+  "author": "Piotr Krzoska",
+  "license": "ISC",
+  "homepage": "https://github.com/krzochalski/Range-Scheduler-DEMO",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babelify": "^7.3.0",
+    "backand": "^2.3.1",
+    "backand-hosting-s3": "^1.9.0",
+    "browserify": "^14.4.0",
+    "concurrently": "^3.4.0",
+    "connect": "^3.6.2",
+    "livereload": "^0.6.2",
+    "node-sass": "^4.5.3",
+    "nodemon": "^1.11.0",
+    "opn": "^5.1.0",
+    "serve-static": "^1.12.3",
+    "shelljs": "^0.7.8"
+  }
 }

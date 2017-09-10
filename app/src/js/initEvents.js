@@ -59,15 +59,19 @@ function showSheduleContainer(container) {
     switch (container) {
         case 'ranges':
             document.getElementById('content-inner').style.left = `${sidebarWidth}px`;
+            console.log(sidebarWidth);
             break;
         case 'timeline':
             document.getElementById('content-inner').style.left = `${document.getElementsByClassName('scheduler-container')[0].offsetWidth * -1 + sidebarWidth}px`;
+            console.log(sidebarWidth);
             break;
         case 'form':
             document.getElementById('content-inner').style.left = `${document.getElementsByClassName('scheduler-container')[0].offsetWidth * -1 * 2 + sidebarWidth}px`;
+            console.log(sidebarWidth);
             break;
         default:
             document.getElementById('content-inner').style.left = `${sidebarWidth}px`;
+            console.log(sidebarWidth);
     }
 }
 
@@ -161,7 +165,7 @@ export default function () {
 
     setTimeout(() => {
         Promise
-            .resolve(setTimeout(() => disableLoadingScreen(), 700))
-            .then(setTimeout(() => disableOverlay(), 1300));
+            .resolve(setTimeout(() => disableLoadingScreen(), /*70*/0))
+            .then(setTimeout(() => disableOverlay(), /*130*/0));
     }, 800);
 };

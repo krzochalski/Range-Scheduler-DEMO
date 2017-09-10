@@ -3,7 +3,14 @@
 }
 
 .layout {
+    position: absolute;
     overflow-x: hidden;
+    width: 414px;
+    height: 736px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid grey;
 }
 
 .sidebar {
